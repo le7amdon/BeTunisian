@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">94% Tunisien</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_play_next">Play Next</string>
+    <string name="backdrop_title">LOVE MUSIC</string>
+    <string name="backdrop_subtitle">This season top 20 albums</string>
+
+    <string name="niveau">Niveau</string>
+    <string name="niveau_1">Niveau 1</string>
+    <string name="niveau_2">Niveau 2</string>
+    <string name="niveau_3">Niveau 3</string>
+    <string name="niveau_4">Niveau 4</string>
+    <string name="niveau_5">Niveau 5</string>
+    <string name="niveau_6">Niveau 6</string>
+    <string name="niveau_7">Niveau 7</string>
+    <string name="niveau_8">Niveau 8</string>
+    <string name="niveau_9">Niveau 9</string>
+    <string name="niveau_10">Niveau 10</string>
+    <string name="niveau_11">Niveau 11</string>
+    <string name="niveau_12">Niveau 12</string>
+    <string name="niveau_13">Niveau 13</string>
+    <string name="niveau_14">Niveau 14</string>
+    <string name="niveau_15">Niveau 15</string>
+
+    <string name="niveau1_question">Chniya awel 7aja ya3malha etounsi doub ma y9oum menoum ?</string>
+    <string name="niveau2_question">Etounsi fi restaurant chnowa yhabet ?</string>
+    <string name="niveau3_question">Chnowa nejmou nal9aw fi trous etounsi ?</string>
+    <string name="niveau4_question">Kamel ljomla . Stal .. ?</string>
+    <string name="niveau5_question">8ala bel 9loub</string>
+    <string name="niveau6_question">7aja 7lowa</string>
+    <string name="niveau7_question">Kamel ljomla . Saker .. ?</string>
+    <string name="niveau8_question">7aja 5adhra</string>
+    <string name="niveau9_question">Kamel ljomla . mefte7 .. ?</string>
+    <string name="niveau10_question">Commande mta3 chniya ?</string>
+    <string name="niveau11_question">7ajet dima y9oulouhelek weldik ki kont s8ir ?</string>
+    <string name="niveau12_question">7aja neklouha fi romdhane</string>
+    <string name="niveau13_question">Kamel ljomla . teskra mta3 .. ?</string>
+    <string name="niveau14_question">7aja nejmou nektbou biha ?</string>
+    <string name="niveau15_question">Chnowa yji lbelek ki n9olek "China" ?</string>
+</resources>

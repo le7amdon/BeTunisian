@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e1252b</color>
+    <color name="colorPrimaryDark">#6b0812</color>
+    <color name="bck_rep_opened">#e0b9596c</color>
+    <color name="bck_rep_closed">#2a71ac</color>
+    <color name="colorAccent">#a3f782</color>
+    <color name="viewBg">#0192ff</color>
+    <color name="album_title">#4c4c4c</color>
+    <color name="level_label">#f96060</color>
+    <color name="hilights">#a3f782</color>
+
+</resources>

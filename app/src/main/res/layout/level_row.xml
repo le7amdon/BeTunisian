@@ -1,0 +1,57 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorPrimaryDark"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/row_bg"
+            android:weightSum="3">
+
+            <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/n0"
+                android:id="@+id/level_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:layout_gravity="center"
+                android:scaleType="fitXY" />
+            <RelativeLayout
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+            <RatingBar
+                android:id="@+id/level_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:numStars="2"
+                android:isIndicator="false"
+                android:background="@color/cardview_light_background"
+                />
+            <ImageView
+                android:id="@+id/level_lock"
+                android:src="@drawable/lock"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:padding="10dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:clickable="false"
+                android:scaleType="fitXY" />
+            </RelativeLayout>
+        </LinearLayout>
+
+</RelativeLayout>
