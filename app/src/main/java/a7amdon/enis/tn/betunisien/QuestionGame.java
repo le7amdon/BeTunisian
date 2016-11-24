@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
@@ -22,7 +23,7 @@ public class QuestionGame extends AppCompatActivity  {
 
     ViewSwitcher vf=null;
     RelativeLayout request_panel = null;
-    RelativeLayout response_panel = null;
+    LinearLayout response_panel = null;
     ImageButton btnImage_back=null;
     ImageButton btnImage_back_request=null;
     CircleDisplay progress=null;
@@ -50,7 +51,7 @@ public class QuestionGame extends AppCompatActivity  {
                 return true;
             }
         });
-        response_panel = (RelativeLayout) findViewById(R.id.response_panel);
+        response_panel = (LinearLayout) findViewById(R.id.response_panel);
         response_panel.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -99,11 +100,11 @@ public class QuestionGame extends AppCompatActivity  {
         progress.showValue(33f, 100f, true);
 
 
-        cellule_response_locked =(RelativeLayout) findViewById(R.id.cellule_response_locked);
-        cellule_response_unlocked =(RelativeLayout) findViewById(R.id.cellule_response_unlocked);
-        one_cellule_response =(RelativeLayout) findViewById(R.id.one_cellule_response);
+        int[] reponses = new int[]{31,5,8,11,7,20,2,16};
+        for (int k=0;k<reponses.length;k++){
+            initializeCellule(reponses[k],"Frigidère");
+        }
 
-        initializeCellule(20,"Frigidère");
 
     }
 
@@ -112,13 +113,55 @@ public class QuestionGame extends AppCompatActivity  {
     }
     public void onCardClick(View view)
     {
-        flipCard();
+        View root =null;
+        View locked =null;
+        View unlocked=null;
+        if((view.getId()==R.id.cellule_response_locked31) ||(view.getId() ==R.id.progress_response_locked31)){
+            root = (View) findViewById(R.id.one_cellule_response31);
+            locked = (View) findViewById(R.id.cellule_response_locked31);
+            unlocked = (View) findViewById(R.id.cellule_response_unlocked31);
+        }
+        if((view.getId()==R.id.cellule_response_locked2) ||(view.getId() ==R.id.progress_response_locked2)){
+            root = (View) findViewById(R.id.one_cellule_response2);
+            locked = (View) findViewById(R.id.cellule_response_locked2);
+            unlocked = (View) findViewById(R.id.cellule_response_unlocked2);
+        }
+        if((view.getId()==R.id.cellule_response_locked5) ||(view.getId() ==R.id.progress_response_locked5)){
+            root = (View) findViewById(R.id.one_cellule_response5);
+            locked = (View) findViewById(R.id.cellule_response_locked5);
+            unlocked = (View) findViewById(R.id.cellule_response_unlocked5);
+        }
+        if((view.getId()==R.id.cellule_response_locked7) ||(view.getId() ==R.id.progress_response_locked7)){
+            root = (View) findViewById(R.id.one_cellule_response7);
+            locked = (View) findViewById(R.id.cellule_response_locked7);
+            unlocked = (View) findViewById(R.id.cellule_response_unlocked7);
+        }
+        if((view.getId()==R.id.cellule_response_locked8) ||(view.getId() ==R.id.progress_response_locked8)){
+            root = (View) findViewById(R.id.one_cellule_response8);
+            locked = (View) findViewById(R.id.cellule_response_locked8);
+            unlocked = (View) findViewById(R.id.cellule_response_unlocked8);
+        }
+        if((view.getId()==R.id.cellule_response_locked11) ||(view.getId() ==R.id.progress_response_locked11)){
+            root = (View) findViewById(R.id.one_cellule_response11);
+            locked = (View) findViewById(R.id.cellule_response_locked11);
+            unlocked = (View) findViewById(R.id.cellule_response_unlocked11);
+        }
+        if((view.getId()==R.id.cellule_response_locked16) ||(view.getId() ==R.id.progress_response_locked16)){
+            root = (View) findViewById(R.id.one_cellule_response16);
+            locked = (View) findViewById(R.id.cellule_response_locked16);
+            unlocked = (View) findViewById(R.id.cellule_response_unlocked16);
+        }
+        if((view.getId()==R.id.cellule_response_locked20) ||(view.getId() ==R.id.progress_response_locked20)){
+            root = (View) findViewById(R.id.one_cellule_response20);
+            locked = (View) findViewById(R.id.cellule_response_locked20);
+            unlocked = (View) findViewById(R.id.cellule_response_unlocked20);
+        }
+
+        flipCard(root,locked,unlocked);
     }
-    private void flipCard()
+    private void flipCard(View root,View locked,View unlocked)
     {
-        View root = (View) findViewById(R.id.one_cellule_response);
-        View locked = (View) findViewById(R.id.cellule_response_locked);
-        View unlocked = (View) findViewById(R.id.cellule_response_unlocked);
+
 
         FlipAnimation flipAnimation = new FlipAnimation(locked, unlocked);
 
@@ -130,38 +173,287 @@ public class QuestionGame extends AppCompatActivity  {
     }
 
     public void initializeCellule(int percent,String response_text){
-        CircleDisplay progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked);
-        progress2.setAnimDuration(3000);
-        //progress2.setValueWidthPercent(55f);
-        progress2.setTextSize(15f);
-        progress2.setColor(Color.BLUE);
-        progress2.setDrawText(true);
-        progress2.setDrawInnerCircle(true);
-        progress2.setFormatDigits(1);
-        progress2.setTouchEnabled(false);
-        //progress2.setSelectionListener(this);
-        progress2.setUnit("");
-        progress2.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress2.showValue(percent, 100f, true);
-/***********************Top is to locked and Bottom is to unlocked*****************/
-        CircleDisplay progress1 = (CircleDisplay) findViewById(R.id.progress_response_unlocked);
-        progress1.setAnimDuration(3000);
-        //progress1.setValueWidthPercent(55f);
-        progress1.setTextSize(12f);
-        progress1.setColor(Color.RED);
-        progress1.setDrawText(true);
-        progress1.setDrawInnerCircle(true);
-        progress1.setFormatDigits(1);
-        progress1.setTouchEnabled(false);
-        //progress1.setSelectionListener(this);
-        progress1.setUnit("");
-        progress1.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress1.showValue(percent, 100f, true);
+        CircleDisplay progress2=null,progress1=null;
+        TextView label_ublocked=null;
 
-        TextView label_ublocked = (TextView) findViewById(R.id.label_response_unlocked);
-        label_ublocked.setText(response_text);
+        switch (percent){
+            case 31 :
+
+                 progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked31);
+                progress2.setAnimDuration(3000);
+                //progress2.setValueWidthPercent(55f);
+                progress2.setTextSize(15f);
+                progress2.setColor(Color.BLUE);
+                progress2.setDrawText(true);
+                progress2.setDrawInnerCircle(true);
+                progress2.setFormatDigits(1);
+                progress2.setTouchEnabled(false);
+                //progress2.setSelectionListener(this);
+                progress2.setUnit("");
+                progress2.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress2.showValue(percent, 100f, true);
+/***********************Top is to locked and Bottom is to unlocked*****************/
+                 progress1 = (CircleDisplay) findViewById(R.id.progress_response_unlocked31);
+                progress1.setAnimDuration(3000);
+                //progress1.setValueWidthPercent(55f);
+                progress1.setTextSize(11f);
+                progress1.setColor(Color.RED);
+                progress1.setDrawText(true);
+                progress1.setDrawInnerCircle(true);
+                progress1.setFormatDigits(1);
+                progress1.setTouchEnabled(false);
+                //progress1.setSelectionListener(this);
+                progress1.setUnit("");
+                progress1.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress1.showValue(percent, 100f, true);
+
+                 label_ublocked = (TextView) findViewById(R.id.label_response_unlocked31);
+                label_ublocked.setText(response_text);
+                break;
+            case 5 :
+                 progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked5);
+                progress2.setAnimDuration(3000);
+                //progress2.setValueWidthPercent(55f);
+                progress2.setTextSize(15f);
+                progress2.setColor(Color.BLUE);
+                progress2.setDrawText(true);
+                progress2.setDrawInnerCircle(true);
+                progress2.setFormatDigits(1);
+                progress2.setTouchEnabled(false);
+                //progress2.setSelectionListener(this);
+                progress2.setUnit("");
+                progress2.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress2.showValue(percent, 100f, true);
+/***********************Top is to locked and Bottom is to unlocked*****************/
+                 progress1 = (CircleDisplay) findViewById(R.id.progress_response_unlocked5);
+                progress1.setAnimDuration(3000);
+                //progress1.setValueWidthPercent(55f);
+                progress1.setTextSize(11f);
+                progress1.setColor(Color.RED);
+                progress1.setDrawText(true);
+                progress1.setDrawInnerCircle(true);
+                progress1.setFormatDigits(1);
+                progress1.setTouchEnabled(false);
+                //progress1.setSelectionListener(this);
+                progress1.setUnit("");
+                progress1.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress1.showValue(percent, 100f, true);
+
+                 label_ublocked = (TextView) findViewById(R.id.label_response_unlocked5);
+                label_ublocked.setText(response_text);
+                break;
+            case 8 :
+                progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked8);
+                progress2.setAnimDuration(3000);
+                //progress2.setValueWidthPercent(55f);
+                progress2.setTextSize(15f);
+                progress2.setColor(Color.BLUE);
+                progress2.setDrawText(true);
+                progress2.setDrawInnerCircle(true);
+                progress2.setFormatDigits(1);
+                progress2.setTouchEnabled(false);
+                //progress2.setSelectionListener(this);
+                progress2.setUnit("");
+                progress2.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress2.showValue(percent, 100f, true);
+/***********************Top is to locked and Bottom is to unlocked*****************/
+                progress1 = (CircleDisplay) findViewById(R.id.progress_response_unlocked8);
+                progress1.setAnimDuration(3000);
+                //progress1.setValueWidthPercent(55f);
+                progress1.setTextSize(11f);
+                progress1.setColor(Color.RED);
+                progress1.setDrawText(true);
+                progress1.setDrawInnerCircle(true);
+                progress1.setFormatDigits(1);
+                progress1.setTouchEnabled(false);
+                //progress1.setSelectionListener(this);
+                progress1.setUnit("");
+                progress1.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress1.showValue(percent, 100f, true);
+
+                label_ublocked = (TextView) findViewById(R.id.label_response_unlocked8);
+                label_ublocked.setText(response_text);
+                break;
+            case 11 :
+                progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked11);
+                progress2.setAnimDuration(3000);
+                //progress2.setValueWidthPercent(55f);
+                progress2.setTextSize(15f);
+                progress2.setColor(Color.BLUE);
+                progress2.setDrawText(true);
+                progress2.setDrawInnerCircle(true);
+                progress2.setFormatDigits(1);
+                progress2.setTouchEnabled(false);
+                //progress2.setSelectionListener(this);
+                progress2.setUnit("");
+                progress2.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress2.showValue(percent, 100f, true);
+/***********************Top is to locked and Bottom is to unlocked*****************/
+                progress1 = (CircleDisplay) findViewById(R.id.progress_response_unlocked11);
+                progress1.setAnimDuration(3000);
+                //progress1.setValueWidthPercent(55f);
+                progress1.setTextSize(11f);
+                progress1.setColor(Color.RED);
+                progress1.setDrawText(true);
+                progress1.setDrawInnerCircle(true);
+                progress1.setFormatDigits(1);
+                progress1.setTouchEnabled(false);
+                //progress1.setSelectionListener(this);
+                progress1.setUnit("");
+                progress1.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress1.showValue(percent, 100f, true);
+
+                label_ublocked = (TextView) findViewById(R.id.label_response_unlocked11);
+                label_ublocked.setText(response_text);
+                break;
+            case 7 :
+                progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked7);
+                progress2.setAnimDuration(3000);
+                //progress2.setValueWidthPercent(55f);
+                progress2.setTextSize(15f);
+                progress2.setColor(Color.BLUE);
+                progress2.setDrawText(true);
+                progress2.setDrawInnerCircle(true);
+                progress2.setFormatDigits(1);
+                progress2.setTouchEnabled(false);
+                //progress2.setSelectionListener(this);
+                progress2.setUnit("");
+                progress2.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress2.showValue(percent, 100f, true);
+/***********************Top is to locked and Bottom is to unlocked*****************/
+                progress1 = (CircleDisplay) findViewById(R.id.progress_response_unlocked7);
+                progress1.setAnimDuration(3000);
+                //progress1.setValueWidthPercent(55f);
+                progress1.setTextSize(11f);
+                progress1.setColor(Color.RED);
+                progress1.setDrawText(true);
+                progress1.setDrawInnerCircle(true);
+                progress1.setFormatDigits(1);
+                progress1.setTouchEnabled(false);
+                //progress1.setSelectionListener(this);
+                progress1.setUnit("");
+                progress1.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress1.showValue(percent, 100f, true);
+
+                label_ublocked = (TextView) findViewById(R.id.label_response_unlocked7);
+                label_ublocked.setText(response_text);
+                break;
+            case 20 :
+                progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked20);
+                progress2.setAnimDuration(3000);
+                //progress2.setValueWidthPercent(55f);
+                progress2.setTextSize(15f);
+                progress2.setColor(Color.BLUE);
+                progress2.setDrawText(true);
+                progress2.setDrawInnerCircle(true);
+                progress2.setFormatDigits(1);
+                progress2.setTouchEnabled(false);
+                //progress2.setSelectionListener(this);
+                progress2.setUnit("");
+                progress2.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress2.showValue(percent, 100f, true);
+/***********************Top is to locked and Bottom is to unlocked*****************/
+                progress1 = (CircleDisplay) findViewById(R.id.progress_response_unlocked20);
+                progress1.setAnimDuration(3000);
+                //progress1.setValueWidthPercent(55f);
+                progress1.setTextSize(11f);
+                progress1.setColor(Color.RED);
+                progress1.setDrawText(true);
+                progress1.setDrawInnerCircle(true);
+                progress1.setFormatDigits(1);
+                progress1.setTouchEnabled(false);
+                //progress1.setSelectionListener(this);
+                progress1.setUnit("");
+                progress1.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress1.showValue(percent, 100f, true);
+
+                label_ublocked = (TextView) findViewById(R.id.label_response_unlocked20);
+                label_ublocked.setText(response_text);
+                break;
+            case 2 :
+                progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked2);
+                progress2.setAnimDuration(3000);
+                //progress2.setValueWidthPercent(55f);
+                progress2.setTextSize(15f);
+                progress2.setColor(Color.BLUE);
+                progress2.setDrawText(true);
+                progress2.setDrawInnerCircle(true);
+                progress2.setFormatDigits(1);
+                progress2.setTouchEnabled(false);
+                //progress2.setSelectionListener(this);
+                progress2.setUnit("");
+                progress2.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress2.showValue(percent, 100f, true);
+/***********************Top is to locked and Bottom is to unlocked*****************/
+                progress1 = (CircleDisplay) findViewById(R.id.progress_response_unlocked2);
+                progress1.setAnimDuration(3000);
+                //progress1.setValueWidthPercent(55f);
+                progress1.setTextSize(11f);
+                progress1.setColor(Color.RED);
+                progress1.setDrawText(true);
+                progress1.setDrawInnerCircle(true);
+                progress1.setFormatDigits(1);
+                progress1.setTouchEnabled(false);
+                //progress1.setSelectionListener(this);
+                progress1.setUnit("");
+                progress1.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress1.showValue(percent, 100f, true);
+
+                label_ublocked = (TextView) findViewById(R.id.label_response_unlocked2);
+                label_ublocked.setText(response_text);
+                break;
+            case 16 :
+                progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked16);
+                progress2.setAnimDuration(3000);
+                //progress2.setValueWidthPercent(55f);
+                progress2.setTextSize(15f);
+                progress2.setColor(Color.BLUE);
+                progress2.setDrawText(true);
+                progress2.setDrawInnerCircle(true);
+                progress2.setFormatDigits(1);
+                progress2.setTouchEnabled(false);
+                //progress2.setSelectionListener(this);
+                progress2.setUnit("");
+                progress2.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress2.showValue(percent, 100f, true);
+/***********************Top is to locked and Bottom is to unlocked*****************/
+                progress1 = (CircleDisplay) findViewById(R.id.progress_response_unlocked16);
+                progress1.setAnimDuration(3000);
+                //progress1.setValueWidthPercent(55f);
+                progress1.setTextSize(11f);
+                progress1.setColor(Color.RED);
+                progress1.setDrawText(true);
+                progress1.setDrawInnerCircle(true);
+                progress1.setFormatDigits(1);
+                progress1.setTouchEnabled(false);
+                //progress1.setSelectionListener(this);
+                progress1.setUnit("");
+                progress1.setStepSize(0.5f);
+                // cd.setCustomText(...); // sets a custom array of text
+                progress1.showValue(percent, 100f, true);
+
+                label_ublocked = (TextView) findViewById(R.id.label_response_unlocked16);
+                label_ublocked.setText(response_text);
+                break;
+            default :
+                break;
+        }
+
     }
 
 /*
