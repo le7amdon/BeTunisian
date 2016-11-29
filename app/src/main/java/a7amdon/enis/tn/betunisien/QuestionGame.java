@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -98,6 +100,7 @@ public class QuestionGame extends AppCompatActivity  {
         progress.setStepSize(0.5f);
         // cd.setCustomText(...); // sets a custom array of text
         progress.showValue(33f, 100f, true);
+        startZoomInAnimation(progress );
 
 
         int[] reponses = new int[]{31,5,8,11,7,20,2,16};
@@ -107,12 +110,17 @@ public class QuestionGame extends AppCompatActivity  {
 
 
     }
-
+    public void startZoomInAnimation(View view) {
+        //ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in_animation);
+        view.startAnimation(animation);
+    }
     public void onCardClickNothing(){
 
     }
     public void onCardClick(View view)
     {
+
         View root =null;
         View locked =null;
         View unlocked=null;
@@ -145,8 +153,7 @@ public class QuestionGame extends AppCompatActivity  {
             root = (View) findViewById(R.id.one_cellule_response11);
             locked = (View) findViewById(R.id.cellule_response_locked11);
             unlocked = (View) findViewById(R.id.cellule_response_unlocked11);
-        }
-        if((view.getId()==R.id.cellule_response_locked16) ||(view.getId() ==R.id.progress_response_locked16)){
+        }if((view.getId()==R.id.cellule_response_locked16) ||(view.getId() ==R.id.progress_response_locked16)){
             root = (View) findViewById(R.id.one_cellule_response16);
             locked = (View) findViewById(R.id.cellule_response_locked16);
             unlocked = (View) findViewById(R.id.cellule_response_unlocked16);
@@ -169,7 +176,10 @@ public class QuestionGame extends AppCompatActivity  {
         {
             flipAnimation.reverse();
         }
+
         root.startAnimation(flipAnimation);
+        progress.setFocusable(true);
+        progress.requestFocus();
     }
 
     public void initializeCellule(int percent,String response_text){
