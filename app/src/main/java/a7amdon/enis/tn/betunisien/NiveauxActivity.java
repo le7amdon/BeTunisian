@@ -39,7 +39,7 @@ public class NiveauxActivity extends AppCompatActivity implements View.OnClickLi
         btnImage_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),home.class);
+                Intent intent = new Intent(v.getContext(),HomeActivity.class);
                 v.getContext().startActivity(intent);
             }
         });
@@ -186,7 +186,7 @@ public class NiveauxActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v == cicrcleDisplay_level_question_progress || v == textView_level_question_text)
         {
-            Intent intent = new Intent(v.getContext(),home.class);
+            Intent intent = new Intent(v.getContext(),HomeActivity.class);
             //intent.putExtra("level_selected",""+level_number.getTag(level_number.getId()) );
             v.getContext().startActivity(intent);
         }

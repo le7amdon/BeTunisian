@@ -50,7 +50,7 @@ public class NiveauxAdapter extends RecyclerView.Adapter<NiveauxAdapter.MyViewHo
         Niveau niveau = NiveauxList.get(position);
         holder.level_number.setImageResource(niveau.getImage());
         holder.level_number.setTag(holder.level_number.getId(),niveau.getValeur());
-        home.StatusLevel status = niveau.getStatus();
+        HomeActivity.StatusLevel status = niveau.getStatus();
         switch (status){
             case blocked:
                 holder.level_rating.setVisibility(View.INVISIBLE);

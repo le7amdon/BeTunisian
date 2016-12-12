@@ -26,7 +26,7 @@ import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
 import a7amdon.enis.tn.betunisien.util.Niveau;
 import a7amdon.enis.tn.betunisien.util.Reponse;
 
-public class home extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView=null;
     private NiveauxAdapter adapter=null;
     private List<Niveau> niveauxList=null;
@@ -38,11 +38,8 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_app);
-        dbHandler = new DatabaseHandler(getApplicationContext());
-        dbHandler.addReponse(new Reponse(1,0,"okokok",20,3));
-        Toast.makeText(getApplicationContext(),dbHandler.getAllResponses().get(0).getTexte(),Toast.LENGTH_SHORT).show();
-        setSupportActionBar(toolbar);
 
+        setSupportActionBar(toolbar);
 
         initCollapsingToolbar();
 

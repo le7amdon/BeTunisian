@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="a7amdon.enis.tn.betunisien.home"
+    tools:context="a7amdon.enis.tn.betunisien.HomeActivity"
     tools:showIn="@layout/home">
 
     <android.support.v7.widget.RecyclerView

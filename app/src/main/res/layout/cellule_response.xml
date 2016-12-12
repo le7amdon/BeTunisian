@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/one_cellule_response"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent" >
+    <RelativeLayout
+        android:layout_width="130dp"
+        android:background="@color/colorPrimary"
+        android:layout_height="130dp"
+        android:id="@+id/cellule_response_locked"
+        android:clickable="true"
+        android:onClick="onCardClick"
+        android:layout_centerInParent="true">
+    <a7amdon.enis.tn.betunisien.animations.CircleDisplay
+        android:background="@color/colorPrimary"
+        android:id="@+id/progress_response_locked"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:clickable="true"
+        android:onClick="onCardClick"
+        android:layout_centerInParent="true"
+
+    />
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="130dp"
+        android:background="@color/bck_rep_closed"
+        android:layout_height="130dp"
+        android:id="@+id/cellule_response_unlocked"
+        android:clickable="true"
+        android:layout_centerInParent="false"
+        android:visibility="gone">
+    <a7amdon.enis.tn.betunisien.animations.CircleDisplay
+        android:background="@color/bck_rep_closed"
+        android:id="@+id/progress_response_unlocked"
+        android:layout_marginTop="5dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+       android:layout_centerHorizontal="true"
+        />
+        <TextView
+            android:id="@+id/label_response_unlocked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+            android:textSize="15dp"
+            android:text="ok im here bbbbbbbbbbbb"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/progress_response_unlocked"/>
+    </RelativeLayout>
+</RelativeLayout>

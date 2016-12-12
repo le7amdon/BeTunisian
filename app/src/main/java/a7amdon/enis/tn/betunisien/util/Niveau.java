@@ -1,7 +1,7 @@
 package a7amdon.enis.tn.betunisien.util;
 
 
-import a7amdon.enis.tn.betunisien.home;
+import a7amdon.enis.tn.betunisien.HomeActivity;
 
 /**
  * Created by 7amdon on 13/10/2016.
@@ -12,9 +12,9 @@ public class Niveau {
     private QuestionTexte questionTexte;
     private QuestionImage questionImage;
     private int image;
-    private home.StatusLevel status;
+    private HomeActivity.StatusLevel status;
 
-    public Niveau(int valeur, QuestionTexte questionTexte, QuestionImage questionImage,home.StatusLevel status,int image) {
+    public Niveau(int valeur, QuestionTexte questionTexte, QuestionImage questionImage, HomeActivity.StatusLevel status, int image) {
         this.valeur = valeur;
         this.questionTexte = questionTexte;
         this.questionImage = questionImage;
@@ -55,11 +55,11 @@ public class Niveau {
         this.image = image;
     }
 
-    public home.StatusLevel getStatus() {
+    public HomeActivity.StatusLevel getStatus() {
         return status;
     }
 
-    public void setStatus(home.StatusLevel status) {
+    public void setStatus(HomeActivity.StatusLevel status) {
         this.status = status;
     }
 }

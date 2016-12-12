@@ -8,16 +8,20 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import a7amdon.enis.tn.betunisien.animations.CircleDisplay;
 import a7amdon.enis.tn.betunisien.animations.FlipAnimation;
+import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
+import a7amdon.enis.tn.betunisien.util.Reponse;
 
-public class QuestionGame extends AppCompatActivity  {
+public class QuestionGame extends AppCompatActivity  implements View.OnClickListener{
 
     RelativeLayout cellule_response_locked = null;
     RelativeLayout cellule_response_unlocked=null;
@@ -28,10 +32,15 @@ public class QuestionGame extends AppCompatActivity  {
     LinearLayout response_panel = null;
     ImageButton btnImage_back=null;
     ImageButton btnImage_back_request=null;
+    ImageButton btn_question_response;
     CircleDisplay progress=null;
+    static int p=0;
 
+    EditText edittxt_question_response;
     CircleDisplay percent31,percent20,percent16,percent11,percent8,percent5,percent2;
 
+
+    DatabaseHandler dbHandler;
 
 
     @Override
@@ -39,6 +48,10 @@ public class QuestionGame extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.question_game);
 
+
+        btn_question_response = (ImageButton)  findViewById(R.id.btn_question_response);
+        edittxt_question_response = (EditText)  findViewById(R.id.edittxt_question_response);
+        dbHandler = new DatabaseHandler(getApplicationContext());
 
         vf = (ViewSwitcher) findViewById(R.id.viewSwitcher);
 
@@ -462,6 +475,19 @@ public class QuestionGame extends AppCompatActivity  {
                 break;
             default :
                 break;
+        }
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v==btn_question_response|| v==edittxt_question_response){
+            if(!edittxt_question_response.getText().equals(null)){
+                dbHandler.addReponse(new Reponse(1,0,"33333",20,3));
+                Toast.makeText(getApplicationContext(),dbHandler.getAllResponses().get(p).getTexte(),Toast.LENGTH_SHORT).show();
+            }
+            p++;
         }
 
     }
