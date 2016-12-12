@@ -46,16 +46,13 @@
                     android:background="@color/colorPrimary"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_locked31"
-                    android:clickable="true"
-                    android:onClick="onCardClick"
                     android:layout_centerInParent="true">
                     <a7amdon.enis.tn.betunisien.animations.CircleDisplay
                         android:background="@color/colorPrimary"
                         android:id="@+id/progress_response_locked31"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:clickable="true"
-                        android:onClick="onCardClick"
+
                         android:layout_centerInParent="true"
 
                         />
@@ -65,7 +62,6 @@
                     android:background="@color/bck_rep_closed"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_unlocked31"
-                    android:clickable="false"
                     android:gravity="center"
                     android:visibility="gone"
                     >
@@ -102,16 +98,14 @@
                     android:background="@color/colorPrimary"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_locked20"
-                    android:clickable="true"
-                    android:onClick="onCardClick"
+
                     android:layout_centerInParent="true">
                     <a7amdon.enis.tn.betunisien.animations.CircleDisplay
                         android:background="@color/colorPrimary"
                         android:id="@+id/progress_response_locked20"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:clickable="true"
-                        android:onClick="onCardClick"
+
                         android:layout_centerInParent="true"
 
                         />
@@ -122,7 +116,6 @@
                     android:background="@color/bck_rep_closed"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_unlocked20"
-                    android:clickable="true"
                     android:gravity="center"
                     android:visibility="gone"
                     >
@@ -168,16 +161,14 @@
                     android:background="@color/colorPrimary"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_locked5"
-                    android:clickable="true"
-                    android:onClick="onCardClick"
+
                     android:layout_centerInParent="true">
                     <a7amdon.enis.tn.betunisien.animations.CircleDisplay
                         android:background="@color/colorPrimary"
                         android:id="@+id/progress_response_locked5"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:clickable="true"
-                        android:onClick="onCardClick"
+
                         android:layout_centerInParent="true"
 
                         />
@@ -187,7 +178,6 @@
                     android:background="@color/bck_rep_closed"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_unlocked5"
-                    android:clickable="true"
                     android:gravity="center"
                     android:visibility="gone"
                     >
@@ -224,16 +214,12 @@
                     android:background="@color/colorPrimary"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_locked11"
-                    android:clickable="true"
-                    android:onClick="onCardClick"
                     android:layout_centerInParent="true">
                     <a7amdon.enis.tn.betunisien.animations.CircleDisplay
                         android:background="@color/colorPrimary"
                         android:id="@+id/progress_response_locked11"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:clickable="true"
-                        android:onClick="onCardClick"
                         android:layout_centerInParent="true"
 
                         />
@@ -243,7 +229,6 @@
                     android:background="@color/bck_rep_closed"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_unlocked11"
-                    android:clickable="true"
                     android:gravity="center"
                     android:visibility="gone"
                     >
@@ -279,16 +264,14 @@
                     android:background="@color/colorPrimary"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_locked2"
-                    android:clickable="true"
-                    android:onClick="onCardClick"
+
                     android:layout_centerInParent="true">
                     <a7amdon.enis.tn.betunisien.animations.CircleDisplay
                         android:background="@color/colorPrimary"
                         android:id="@+id/progress_response_locked2"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:clickable="true"
-                        android:onClick="onCardClick"
+
                         android:layout_centerInParent="true"
 
                         />
@@ -298,7 +281,6 @@
                     android:background="@color/bck_rep_closed"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_unlocked2"
-                    android:clickable="true"
                     android:gravity="center"
                     android:visibility="gone"
                     >
@@ -344,16 +326,14 @@
                     android:background="@color/colorPrimary"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_locked8"
-                    android:clickable="true"
-                    android:onClick="onCardClick"
+
                     android:layout_centerInParent="true">
                     <a7amdon.enis.tn.betunisien.animations.CircleDisplay
                         android:background="@color/colorPrimary"
                         android:id="@+id/progress_response_locked8"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:clickable="true"
-                        android:onClick="onCardClick"
+
                         android:layout_centerInParent="true"
 
                         />
@@ -363,7 +343,6 @@
                     android:background="@color/bck_rep_closed"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_unlocked8"
-                    android:clickable="true"
                     android:gravity="center"
                     android:visibility="gone"
                     >
@@ -402,16 +381,14 @@
                     android:background="@color/colorPrimary"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_locked7"
-                    android:clickable="true"
-                    android:onClick="onCardClick"
+
                     android:layout_centerInParent="true">
                     <a7amdon.enis.tn.betunisien.animations.CircleDisplay
                         android:background="@color/colorPrimary"
                         android:id="@+id/progress_response_locked7"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:clickable="true"
-                        android:onClick="onCardClick"
+
                         android:layout_centerInParent="true"
 
                         />
@@ -421,7 +398,6 @@
                     android:background="@color/bck_rep_closed"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_unlocked7"
-                    android:clickable="true"
                     android:gravity="center"
                     android:visibility="gone"
                     >
@@ -459,16 +435,14 @@
                     android:background="@color/colorPrimary"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_locked16"
-                    android:clickable="true"
-                    android:onClick="onCardClick"
+
                     android:layout_centerInParent="true">
                     <a7amdon.enis.tn.betunisien.animations.CircleDisplay
                         android:background="@color/colorPrimary"
                         android:id="@+id/progress_response_locked16"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
-                        android:clickable="true"
-                        android:onClick="onCardClick"
+
                         android:layout_centerInParent="true"
 
                         />
@@ -478,7 +452,6 @@
                     android:background="@color/bck_rep_closed"
                     android:layout_height="match_parent"
                     android:id="@+id/cellule_response_unlocked16"
-                    android:clickable="true"
                     android:gravity="center"
                     android:visibility="gone"
                     >

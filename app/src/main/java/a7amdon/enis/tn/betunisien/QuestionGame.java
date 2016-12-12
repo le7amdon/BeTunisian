@@ -195,6 +195,59 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
 
         flipCard(root,locked,unlocked);
     }
+
+    public void ShowResponse(Response response)
+    {
+        if (!response.getTurned()) {
+            View root = null;
+            View locked = null;
+            View unlocked = null;
+            double pourcentage = response.getPourcentage();
+            if (pourcentage == 31) {
+                root = (View) findViewById(R.id.one_cellule_response31);
+                locked = (View) findViewById(R.id.cellule_response_locked31);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked31);
+            }
+            if (pourcentage == 2) {
+                root = (View) findViewById(R.id.one_cellule_response2);
+                locked = (View) findViewById(R.id.cellule_response_locked2);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked2);
+            }
+            if (pourcentage == 5) {
+                root = (View) findViewById(R.id.one_cellule_response5);
+                locked = (View) findViewById(R.id.cellule_response_locked5);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked5);
+            }
+            if (pourcentage == 7) {
+                root = (View) findViewById(R.id.one_cellule_response7);
+                locked = (View) findViewById(R.id.cellule_response_locked7);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked7);
+            }
+            if (pourcentage == 8) {
+                root = (View) findViewById(R.id.one_cellule_response8);
+                locked = (View) findViewById(R.id.cellule_response_locked8);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked8);
+            }
+            if (pourcentage == 11) {
+                root = (View) findViewById(R.id.one_cellule_response11);
+                locked = (View) findViewById(R.id.cellule_response_locked11);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked11);
+            }
+            if (pourcentage == 16) {
+                root = (View) findViewById(R.id.one_cellule_response16);
+                locked = (View) findViewById(R.id.cellule_response_locked16);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked16);
+            }
+            if (pourcentage == 20) {
+                root = (View) findViewById(R.id.one_cellule_response20);
+                locked = (View) findViewById(R.id.cellule_response_locked20);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked20);
+            }
+
+            flipCard(root, locked, unlocked);
+            response.setTurned(true);
+        }
+    }
     private void flipCard(View root,View locked,View unlocked)
     {
 
@@ -514,8 +567,14 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
 
 
         if(!edittxt_question_response.getText().toString().equals("")){
-            dbHandler.addReponse(new Response(1,0,edittxt_question_response.getText().toString(),20,3));
-            Toast.makeText(getApplicationContext(),dbHandler.getAllResponses().get(p).getTexte(),Toast.LENGTH_SHORT).show();
+
+            //dbHandler.addReponse(new Response(1,0,edittxt_question_response.getText().toString(),20,3));
+            Response response = levelSelector.checkResponse_text(correctLevel,edittxt_question_response.getText().toString());
+            if (response!=null)
+            {
+                ShowResponse(response);
+                Toast.makeText(getApplicationContext(),"Bravo !",Toast.LENGTH_SHORT).show();
+            }
         }
         p++;
 

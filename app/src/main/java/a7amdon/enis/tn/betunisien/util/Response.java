@@ -10,6 +10,7 @@ public class Response {
         private int id_level;
         private int type; // 0 = text ; 1=image
         private int id;
+    private Boolean turned=false;
 
     public Response(String texte, double pourcentage) {
         this.texte = texte;
@@ -61,5 +62,13 @@ public class Response {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public Boolean getTurned() {
+        return turned;
+    }
+
+    public void setTurned(Boolean turned) {
+        this.turned = turned;
     }
 }

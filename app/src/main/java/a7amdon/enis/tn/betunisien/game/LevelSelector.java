@@ -20,6 +20,7 @@ import a7amdon.enis.tn.betunisien.correction.Level6;
 import a7amdon.enis.tn.betunisien.correction.Level7;
 import a7amdon.enis.tn.betunisien.correction.Level8;
 import a7amdon.enis.tn.betunisien.correction.Level9;
+import a7amdon.enis.tn.betunisien.util.Response;
 
 /**
  * Created by 7amdon on 12/12/2016.
@@ -166,5 +167,14 @@ public class LevelSelector {
                 return new Level5();
         }
         return null;
+    }
+
+    public Response checkResponse_text(CorrectLevel correctLevel,String response){
+        for (int i=0;i<correctLevel.getQuestionTexte().getListe_responses().size();i++){
+            if (correctLevel.getQuestionTexte().getListe_responses().get(i).getTexte().equals(response)){
+                return correctLevel.getQuestionTexte().getListe_responses().get(i);
+            }
+        }
+        return  null;
     }
 }
