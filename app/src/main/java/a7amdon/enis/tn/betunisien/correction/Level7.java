@@ -19,14 +19,14 @@ public class Level7 extends CorrectLevel{
         questionTexte = new QuestionTexte("Kamel ljomla. Saker .. ?");
         ArrayList<Response> list_response = new ArrayList<Response>(8);
         //les réponses de la question n°1
-        list_response.add(new Response("lbeb",31));
-        list_response.add(new Response("sabela",20));
-        list_response.add(new Response("dhaw",16));
-        list_response.add(new Response("talvza",11));
-        list_response.add(new Response("chobek",8));
-        list_response.add(new Response("climatiseur",7));
-        list_response.add(new Response("sac",5));
-        list_response.add(new Response("fomek",2));
+        list_response.add(new Response("lbeb",31,7));
+        list_response.add(new Response("sabela",20,7));
+        list_response.add(new Response("dhaw",16,7));
+        list_response.add(new Response("talvza",11,7));
+        list_response.add(new Response("chobek",8,7));
+        list_response.add(new Response("climatiseur",7,7));
+        list_response.add(new Response("sac",5,7));
+        list_response.add(new Response("fomek",2,7));
 
         questionTexte.setListe_responses(list_response);
 
@@ -34,11 +34,11 @@ public class Level7 extends CorrectLevel{
         questionImage = new QuestionImage(R.drawable.i7);
         ArrayList<Response> list_response1 = new ArrayList<Response>(5);
         //les réponses de la question n°1
-        list_response1.add(new Response("sekka",40));
-        list_response1.add(new Response("barriere",23));
-        list_response1.add(new Response("9antra",16));
-        list_response1.add(new Response("train",12));
-        list_response1.add(new Response("korsi",9));
+        list_response1.add(new Response("sekka",40,7));
+        list_response1.add(new Response("barriere",23,7));
+        list_response1.add(new Response("9antra",16,7));
+        list_response1.add(new Response("train",12,7));
+        list_response1.add(new Response("korsi",9,7));
 
         questionImage.setListe_responses(list_response1);
     }

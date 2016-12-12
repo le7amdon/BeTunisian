@@ -20,25 +20,25 @@ public class Level12 extends CorrectLevel{
         questionTexte = new QuestionTexte("7aja neklouha fi romdhane");
         ArrayList<Response> list_response = new ArrayList<Response>(8);
         //les réponses de la question n°1
-        list_response.add(new Response("m5ara9",31));
-        list_response.add(new Response("zlebya",20));
-        list_response.add(new Response("brik",16));
-        list_response.add(new Response("chorba",11));
-        list_response.add(new Response("masfouf",8));
-        list_response.add(new Response("9tayef",7));
-        list_response.add(new Response("wdhen-l9adhi",5));
-        list_response.add(new Response("bouza",2));
+        list_response.add(new Response("m5ara9",31,12));
+        list_response.add(new Response("zlebya",20,12));
+        list_response.add(new Response("brik",16,12));
+        list_response.add(new Response("chorba",11,12));
+        list_response.add(new Response("masfouf",8,12));
+        list_response.add(new Response("9tayef",7,12));
+        list_response.add(new Response("wdhen-l9adhi",5,12));
+        list_response.add(new Response("bouza",2,12));
 
         questionTexte.setListe_responses(list_response);
         /*******image setting*******/
         questionImage = new QuestionImage(R.drawable.i12);
         ArrayList<Response> list_response1 =new ArrayList<Response>(5);
         //les réponses de la question n°1
-        list_response1.add(new Response("kwer",40));
-        list_response1.add(new Response("terrin",23));
-        list_response1.add(new Response("entrainement",16));
-        list_response1.add(new Response("ramasseur",12));
-        list_response1.add(new Response("jam3iya",9));
+        list_response1.add(new Response("kwer",40,12));
+        list_response1.add(new Response("terrin",23,12));
+        list_response1.add(new Response("entrainement",16,12));
+        list_response1.add(new Response("ramasseur",12,12));
+        list_response1.add(new Response("jam3iya",9,12));
 
         questionImage.setListe_responses(list_response1);
     }

@@ -12,9 +12,10 @@ public class Response {
         private int id;
     private Boolean turned=false;
 
-    public Response(String texte, double pourcentage) {
+    public Response(String texte, double pourcentage, int id_level) {
         this.texte = texte;
         this.pourcentage = pourcentage;
+        this.id_level = id_level;
     }
 
     public Response(int id, int type, String texte, double pourcentage, int id_level) {

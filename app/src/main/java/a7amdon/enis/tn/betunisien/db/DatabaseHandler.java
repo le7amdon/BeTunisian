@@ -79,9 +79,9 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         db.close();
     }
 
-    public int getContactsCount() {
+    public int getResponsesByLevelCount(int id_level) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_RESPONSE, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_RESPONSE+" WHERE id_level = '"+id_level+"'", null);
         int count = cursor.getCount();
         db.close();
         cursor.close();
@@ -112,6 +112,22 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_RESPONSE, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                responses.add(new Response(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), Double.parseDouble(cursor.getString(3)) , Integer.parseInt(cursor.getString(4))));
+            }
+            while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return responses;
+    }
+    public List<Response> getResponsesByLevel(int id_level) {
+        List<Response> responses = new ArrayList<Response>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_RESPONSE+" WHERE id_level = '"+id_level+"'", null);
 
         if (cursor.moveToFirst()) {
             do {

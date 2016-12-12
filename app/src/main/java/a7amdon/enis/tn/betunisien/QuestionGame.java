@@ -47,7 +47,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
     ImageButton btnImage_back_request=null;
     ImageButton btn_question_response;
     CircleDisplay progress=null;
-    static int p=0;
+    int id_level;
 
     EditText edittxt_question_response;
     CircleDisplay percent31,percent20,percent16,percent11,percent8,percent5,percent2;
@@ -92,6 +92,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         });
         Bundle bundle3 = getIntent().getExtras();
         final String lvl_nbr = bundle3.getString("level_selected");
+        id_level = Integer.parseInt(lvl_nbr);
         game_question_txt = (TextView)findViewById(R.id.game_question_txt) ;
         levelSelector =new LevelSelector();
         levelSelector.selectLevel(Integer.parseInt(lvl_nbr),game_question_txt);
@@ -246,6 +247,8 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
 
             flipCard(root, locked, unlocked);
             response.setTurned(true);
+            Toast.makeText(getApplicationContext(),"Bravo !",Toast.LENGTH_SHORT).show();
+
         }
     }
     private void flipCard(View root,View locked,View unlocked)
@@ -573,10 +576,10 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
             if (response!=null)
             {
                 ShowResponse(response);
-                Toast.makeText(getApplicationContext(),"Bravo !",Toast.LENGTH_SHORT).show();
+                dbHandler.addReponse(response);
+                Toast.makeText(getApplicationContext(),dbHandler.getResponsesByLevelCount(id_level)+" !!!",Toast.LENGTH_SHORT).show();
             }
         }
-        p++;
 
     }
 

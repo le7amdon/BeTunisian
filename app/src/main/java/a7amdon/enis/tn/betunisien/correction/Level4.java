@@ -20,14 +20,14 @@ public class Level4 extends CorrectLevel{
         questionTexte = new QuestionTexte("Kamel ljomla . Stal .. ?");
         ArrayList<Response> list_response = new ArrayList<Response>(8);
         //les réponses de la question n°1
-        list_response.add(new Response("ma",31));
-        list_response.add(new Response("zebla",20));
-        list_response.add(new Response("dohn",16));
-        list_response.add(new Response("mas7an",11));
-        list_response.add(new Response("ba8li",8));
-        list_response.add(new Response("hendi",7));
-        list_response.add(new Response("karmous",5));
-        list_response.add(new Response("babouch",2));
+        list_response.add(new Response("ma",31,4));
+        list_response.add(new Response("zebla",20,4));
+        list_response.add(new Response("dohn",16,4));
+        list_response.add(new Response("mas7an",11,4));
+        list_response.add(new Response("ba8li",8,4));
+        list_response.add(new Response("hendi",7,4));
+        list_response.add(new Response("karmous",5,4));
+        list_response.add(new Response("babouch",2,4));
 
         questionTexte.setListe_responses(list_response);
 
@@ -35,11 +35,11 @@ public class Level4 extends CorrectLevel{
         questionImage = new QuestionImage(R.drawable.i4);
         ArrayList<Response> list_response1 = new ArrayList<Response>(5);
         //les réponses de la question n°1
-        list_response1.add(new Response("fil",40));
-        list_response1.add(new Response("8ouroub",23));
-        list_response1.add(new Response("dhel",16));
-        list_response1.add(new Response("nature",12));
-        list_response1.add(new Response("3ayla",9));
+        list_response1.add(new Response("fil",40,4));
+        list_response1.add(new Response("8ouroub",23,4));
+        list_response1.add(new Response("dhel",16,4));
+        list_response1.add(new Response("nature",12,4));
+        list_response1.add(new Response("3ayla",9,4));
 
         questionImage.setListe_responses(list_response1);
     }

@@ -20,14 +20,14 @@ public class Level13 extends CorrectLevel{
         questionTexte = new QuestionTexte("Kamel ljomla . teskra mta3 .. ?");
         ArrayList<Response> list_response = new ArrayList<Response>(8);
         //les réponses de la question n°1
-        list_response.add(new Response("car",31));
-        list_response.add(new Response("metro",20));
-        list_response.add(new Response("tayara",16));
-        list_response.add(new Response("stade",11));
-        list_response.add(new Response("peage",8));
-        list_response.add(new Response("cinema",7));
-        list_response.add(new Response("bousta",5));
-        list_response.add(new Response("light",2));
+        list_response.add(new Response("car",31,13));
+        list_response.add(new Response("metro",20,13));
+        list_response.add(new Response("tayara",16,13));
+        list_response.add(new Response("stade",11,13));
+        list_response.add(new Response("peage",8,13));
+        list_response.add(new Response("cinema",7,13));
+        list_response.add(new Response("bousta",5,13));
+        list_response.add(new Response("light",2,13));
 
         questionTexte.setListe_responses(list_response);
 
@@ -35,11 +35,11 @@ public class Level13 extends CorrectLevel{
         questionImage = new QuestionImage(R.drawable.i13);
         ArrayList<Response> list_response1 = new ArrayList<Response>(5);
         //les réponses de la question n°1
-        list_response1.add(new Response("koura-ardhiya",40));
-        list_response1.add(new Response("tofla",23));
-        list_response1.add(new Response("mou3alma",16));
-        list_response1.add(new Response("9raya",12));
-        list_response1.add(new Response("jo8rafia",9));
+        list_response1.add(new Response("koura-ardhiya",40,13));
+        list_response1.add(new Response("tofla",23,13));
+        list_response1.add(new Response("mou3alma",16,13));
+        list_response1.add(new Response("9raya",12,13));
+        list_response1.add(new Response("jo8rafia",9,13));
 
         questionImage.setListe_responses(list_response1);
     }
