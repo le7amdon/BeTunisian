@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -119,7 +120,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         progress.setStepSize(0.5f);
         // cd.setCustomText(...); // sets a custom array of text
         progress.showValue(33f, 100f, true);
-        startZoomInAnimation(progress );
+        //startZoomInAnimation(progress );
 
 
         int[] reponses = new int[]{31,5,8,11,7,20,2,16};
@@ -129,14 +130,12 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
 
 
     }
-    public void startZoomInAnimation(View view) {
+    /*public void startZoomInAnimation(View view) {
         //ImageView imageView = (ImageView) findViewById(R.id.imageView);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in_animation);
         view.startAnimation(animation);
-    }
-    public void onCardClickNothing(){
+    }*/
 
-    }
     public void onCardClick(View view)
     {
 
@@ -488,13 +487,22 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
     @Override
     public void onClick(View v) {
 
-        if (v==btn_question_response|| v==edittxt_question_response){
+       /* if (v==btn_question_response|| v==edittxt_question_response){
             if(!edittxt_question_response.getText().equals(null)){
                 dbHandler.addReponse(new Response(1,0,"33333",20,3));
                 Toast.makeText(getApplicationContext(),dbHandler.getAllResponses().get(p).getTexte(),Toast.LENGTH_SHORT).show();
             }
             p++;
+        }*/
+
+    }
+
+    public void answer(View v){
+        if(!edittxt_question_response.getText().toString().equals("")){
+            dbHandler.addReponse(new Response(1,0,edittxt_question_response.getText().toString(),20,3));
+            Toast.makeText(getApplicationContext(),dbHandler.getAllResponses().get(p).getTexte(),Toast.LENGTH_SHORT).show();
         }
+        p++;
 
     }
 
