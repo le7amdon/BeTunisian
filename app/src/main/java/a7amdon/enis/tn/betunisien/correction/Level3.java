@@ -10,15 +10,15 @@ import a7amdon.enis.tn.betunisien.util.Response;
 /**
  * Created by 7amdon on 13/10/2016.
  */
-public class Niveau3 {
+public class Level3 extends CorrectLevel{
 
-    public static QuestionTexte questionTexte ;
-    public static QuestionImage questionImage;
+    public  QuestionTexte questionTexte ;
+    public  QuestionImage questionImage;
 
-    public Niveau3()
+    public Level3()
     {
         questionTexte = new QuestionTexte("Chnowa nejmou nal9aw fi trous etounsi ?");
-        ArrayList<Response> list_response = null;
+        ArrayList<Response> list_response = new ArrayList<Response>(8);
         //les réponses de la question n°3
         list_response.add(new Response("stilouwet",31));
         list_response.add(new Response("9lam-rsas",20));
@@ -32,7 +32,7 @@ public class Niveau3 {
         questionTexte.setListe_responses(list_response);
         /*******image setting*******/
         questionImage = new QuestionImage(R.drawable.i3);
-        ArrayList<Response> list_response1 = null;
+        ArrayList<Response> list_response1 = new ArrayList<Response>(5);
         //les réponses de la question n°1
         list_response1.add(new Response("mra",40));
         list_response1.add(new Response("7abs",23));
@@ -41,5 +41,12 @@ public class Niveau3 {
         list_response1.add(new Response("7did",9));
 
         questionImage.setListe_responses(list_response1);
+    }
+    public  QuestionTexte getQuestionTexte() {
+        return questionTexte;
+    }
+
+    public  QuestionImage getQuestionImage() {
+        return questionImage;
     }
 }

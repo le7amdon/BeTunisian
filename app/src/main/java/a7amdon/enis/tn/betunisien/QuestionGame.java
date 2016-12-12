@@ -1,5 +1,9 @@
 package a7amdon.enis.tn.betunisien;
 
+import a7amdon.enis.tn.betunisien.util.Level;
+import a7amdon.enis.tn.betunisien.util.QuestionImage;
+import a7amdon.enis.tn.betunisien.util.QuestionTexte;
+import a7amdon.enis.tn.betunisien.util.Response;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +23,8 @@ import android.widget.ViewSwitcher;
 
 import a7amdon.enis.tn.betunisien.animations.CircleDisplay;
 import a7amdon.enis.tn.betunisien.animations.FlipAnimation;
+import a7amdon.enis.tn.betunisien.correction.CorrectLevel;
+import a7amdon.enis.tn.betunisien.correction.Level1;
 import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
 import a7amdon.enis.tn.betunisien.game.LevelSelector;
 import a7amdon.enis.tn.betunisien.util.Response;
@@ -29,6 +35,8 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
     RelativeLayout cellule_response_unlocked=null;
     RelativeLayout one_cellule_response = null;
 
+    LevelSelector levelSelector;
+    CorrectLevel correctLevel;
 
     TextView game_question_txt= null;
 
@@ -85,7 +93,10 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         Bundle bundle3 = getIntent().getExtras();
         final String lvl_nbr = bundle3.getString("level_selected");
         game_question_txt = (TextView)findViewById(R.id.game_question_txt) ;
-        new LevelSelector().selectLevel(Integer.parseInt(lvl_nbr),game_question_txt);
+        levelSelector =new LevelSelector();
+        levelSelector.selectLevel(Integer.parseInt(lvl_nbr),game_question_txt);
+        correctLevel = levelSelector.selectCorrectLevel(Integer.parseInt(lvl_nbr));
+
 
         btnImage_back = (ImageButton) findViewById(R.id.btnImage_back);
         btnImage_back.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +136,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
 
         int[] reponses = new int[]{31,5,8,11,7,20,2,16};
         for (int k=0;k<reponses.length;k++){
-            initializeCellule(reponses[k],"Frigidère");
+            initializeCellule(reponses[k]);
         }
 
 
@@ -200,7 +211,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         progress.requestFocus();
     }
 
-    public void initializeCellule(int percent,String response_text){
+    public void initializeCellule(int percent){
         CircleDisplay progress2=null,progress1=null;
         TextView label_ublocked=null;
 
@@ -238,7 +249,8 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
                 progress1.showValue(percent, 100f, true);
 
                  label_ublocked = (TextView) findViewById(R.id.label_response_unlocked31);
-                label_ublocked.setText(response_text);
+
+                label_ublocked.setText(correctLevel.getQuestionTexte().getListe_responses().get(0).getTexte());
                 break;
             case 5 :
                  progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked5);
@@ -272,7 +284,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
                 progress1.showValue(percent, 100f, true);
 
                  label_ublocked = (TextView) findViewById(R.id.label_response_unlocked5);
-                label_ublocked.setText(response_text);
+                label_ublocked.setText(correctLevel.getQuestionTexte().getListe_responses().get(6).getTexte());
                 break;
             case 8 :
                 progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked8);
@@ -306,7 +318,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
                 progress1.showValue(percent, 100f, true);
 
                 label_ublocked = (TextView) findViewById(R.id.label_response_unlocked8);
-                label_ublocked.setText(response_text);
+                label_ublocked.setText(correctLevel.getQuestionTexte().getListe_responses().get(4).getTexte());
                 break;
             case 11 :
                 progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked11);
@@ -340,7 +352,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
                 progress1.showValue(percent, 100f, true);
 
                 label_ublocked = (TextView) findViewById(R.id.label_response_unlocked11);
-                label_ublocked.setText(response_text);
+                label_ublocked.setText(correctLevel.getQuestionTexte().getListe_responses().get(3).getTexte());
                 break;
             case 7 :
                 progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked7);
@@ -374,7 +386,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
                 progress1.showValue(percent, 100f, true);
 
                 label_ublocked = (TextView) findViewById(R.id.label_response_unlocked7);
-                label_ublocked.setText(response_text);
+                label_ublocked.setText(correctLevel.getQuestionTexte().getListe_responses().get(5).getTexte());
                 break;
             case 20 :
                 progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked20);
@@ -408,7 +420,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
                 progress1.showValue(percent, 100f, true);
 
                 label_ublocked = (TextView) findViewById(R.id.label_response_unlocked20);
-                label_ublocked.setText(response_text);
+                label_ublocked.setText(correctLevel.getQuestionTexte().getListe_responses().get(1).getTexte());
                 break;
             case 2 :
                 progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked2);
@@ -442,7 +454,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
                 progress1.showValue(percent, 100f, true);
 
                 label_ublocked = (TextView) findViewById(R.id.label_response_unlocked2);
-                label_ublocked.setText(response_text);
+                label_ublocked.setText(correctLevel.getQuestionTexte().getListe_responses().get(7).getTexte());
                 break;
             case 16 :
                 progress2 = (CircleDisplay) findViewById(R.id.progress_response_locked16);
@@ -476,7 +488,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
                 progress1.showValue(percent, 100f, true);
 
                 label_ublocked = (TextView) findViewById(R.id.label_response_unlocked16);
-                label_ublocked.setText(response_text);
+                label_ublocked.setText(correctLevel.getQuestionTexte().getListe_responses().get(2).getTexte());
                 break;
             default :
                 break;
@@ -498,6 +510,9 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
     }
 
     public void answer(View v){
+
+
+
         if(!edittxt_question_response.getText().toString().equals("")){
             dbHandler.addReponse(new Response(1,0,edittxt_question_response.getText().toString(),20,3));
             Toast.makeText(getApplicationContext(),dbHandler.getAllResponses().get(p).getTexte(),Toast.LENGTH_SHORT).show();

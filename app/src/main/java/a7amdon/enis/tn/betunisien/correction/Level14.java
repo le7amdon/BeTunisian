@@ -10,15 +10,15 @@ import a7amdon.enis.tn.betunisien.util.Response;
 /**
  * Created by 7amdon on 13/10/2016.
  */
-public class Niveau14 {
+public class Level14 extends CorrectLevel{
 
-    public static QuestionTexte questionTexte ;
-    public static QuestionImage questionImage;
+    public  QuestionTexte questionTexte ;
+    public  QuestionImage questionImage;
 
-    public Niveau14()
+    public Level14()
     {
         questionTexte = new QuestionTexte("Chniya awel 7aja ya3malha etounsi doub ma y9oum menoum ?");
-        ArrayList<Response> list_response = null;
+        ArrayList<Response> list_response = new ArrayList<Response>(8);
         //les réponses de la question n°1
         list_response.add(new Response("stylo",31));
         list_response.add(new Response("9lam",20));
@@ -33,7 +33,7 @@ public class Niveau14 {
 
         /*******image setting*******/
         questionImage = new QuestionImage(R.drawable.i14);
-        ArrayList<Response> list_response1 = null;
+        ArrayList<Response> list_response1 = new ArrayList<Response>(5);
         //les réponses de la question n°1
         list_response1.add(new Response("besklet",40));
         list_response1.add(new Response("tfol",23));
@@ -42,5 +42,12 @@ public class Niveau14 {
         list_response1.add(new Response("san3a",9));
 
         questionImage.setListe_responses(list_response1);
+    }
+    public  QuestionTexte getQuestionTexte() {
+        return questionTexte;
+    }
+
+    public  QuestionImage getQuestionImage() {
+        return questionImage;
     }
 }

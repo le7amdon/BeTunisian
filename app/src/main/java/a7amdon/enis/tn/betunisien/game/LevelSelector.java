@@ -4,6 +4,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import a7amdon.enis.tn.betunisien.R;
+import a7amdon.enis.tn.betunisien.correction.CorrectLevel;
+import a7amdon.enis.tn.betunisien.correction.Level1;
+import a7amdon.enis.tn.betunisien.correction.Level10;
+import a7amdon.enis.tn.betunisien.correction.Level11;
+import a7amdon.enis.tn.betunisien.correction.Level12;
+import a7amdon.enis.tn.betunisien.correction.Level13;
+import a7amdon.enis.tn.betunisien.correction.Level14;
+import a7amdon.enis.tn.betunisien.correction.Level15;
+import a7amdon.enis.tn.betunisien.correction.Level2;
+import a7amdon.enis.tn.betunisien.correction.Level3;
+import a7amdon.enis.tn.betunisien.correction.Level4;
+import a7amdon.enis.tn.betunisien.correction.Level5;
+import a7amdon.enis.tn.betunisien.correction.Level6;
+import a7amdon.enis.tn.betunisien.correction.Level7;
+import a7amdon.enis.tn.betunisien.correction.Level8;
+import a7amdon.enis.tn.betunisien.correction.Level9;
 
 /**
  * Created by 7amdon on 12/12/2016.
@@ -111,5 +127,44 @@ public class LevelSelector {
                 imgView_level_image_src.setImageResource(R.drawable.i15);
                 break;
         }
+    }
+
+    public CorrectLevel selectCorrectLevel(int nbLevel){
+
+        switch (nbLevel){
+            case 1 :
+                return new Level1();
+            case 2 :
+                return new Level2();
+            case 3 :
+                return new Level3();
+            case 4 :
+                return new Level4();
+            case 5 :
+                return new Level5();
+            case 6 :
+                return new Level6();
+            case 7 :
+                return new Level7();
+
+            case 8 :
+                return new Level8();
+            case 9 :
+                return new Level9();
+            case 10 :
+                return new Level10();
+            case 11 :
+                return new Level11();
+
+            case 12 :
+                return new Level12();
+            case 13 :
+                return new Level13();
+            case 14 :
+                return new Level14();
+            case 15 :
+                return new Level5();
+        }
+        return null;
     }
 }
