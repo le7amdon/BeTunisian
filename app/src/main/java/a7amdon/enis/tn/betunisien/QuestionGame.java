@@ -1,18 +1,12 @@
 package a7amdon.enis.tn.betunisien;
 
-import a7amdon.enis.tn.betunisien.util.Level;
-import a7amdon.enis.tn.betunisien.util.QuestionImage;
-import a7amdon.enis.tn.betunisien.util.QuestionTexte;
 import a7amdon.enis.tn.betunisien.util.Response;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -21,13 +15,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
+import java.util.List;
+
 import a7amdon.enis.tn.betunisien.animations.CircleDisplay;
 import a7amdon.enis.tn.betunisien.animations.FlipAnimation;
 import a7amdon.enis.tn.betunisien.correction.CorrectLevel;
-import a7amdon.enis.tn.betunisien.correction.Level1;
 import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
 import a7amdon.enis.tn.betunisien.game.LevelSelector;
-import a7amdon.enis.tn.betunisien.util.Response;
 
 public class QuestionGame extends AppCompatActivity  implements View.OnClickListener{
 
@@ -139,6 +133,11 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         for (int k=0;k<reponses.length;k++){
             initializeCellule(reponses[k]);
         }
+        List<Response> responses = dbHandler.getResponses_textByLevel(id_level);
+        for (int p=0;p<responses.size();p++ ){
+            ShowResponse(responses.get(p));
+        }
+
 
 
     }
@@ -247,9 +246,13 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
 
             flipCard(root, locked, unlocked);
             response.setTurned(true);
-            Toast.makeText(getApplicationContext(),"Bravo !",Toast.LENGTH_SHORT).show();
 
         }
+    }
+    public  void bravo(Response response){
+        ShowResponse(response);
+        Toast.makeText(getApplicationContext(),"Bravo !",Toast.LENGTH_SHORT).show();
+
     }
     private void flipCard(View root,View locked,View unlocked)
     {
@@ -575,9 +578,9 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
             Response response = levelSelector.checkResponse_text(correctLevel,edittxt_question_response.getText().toString());
             if (response!=null)
             {
-                ShowResponse(response);
+                bravo(response);
                 dbHandler.addReponse(response);
-                Toast.makeText(getApplicationContext(),dbHandler.getResponsesByLevelCount(id_level)+" !!!",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),dbHandler.getResponsesByLevelCount(id_level)+" !!!",Toast.LENGTH_SHORT).show();
             }
         }
 

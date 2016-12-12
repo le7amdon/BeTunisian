@@ -59,17 +59,20 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         db.close();
     }
 
-    public Response getTextResponse(int id_level) {
-        SQLiteDatabase db = this.getReadableDatabase();
+    public Response getResponseByPercentage_Level(int id_level,String response_PERCENTAGE) {
+        Response response=null;
 
-        Cursor cursor = db.query(TABLE_RESPONSE, new String[] { Response_ID, Response_TYPE, Response_TEXT, Response_PERCENTAGE, Response_ID_LEVEL }, Response_ID_LEVEL + "=?", new String[] { String.valueOf(id_level) }, null, null, null, null );
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_RESPONSE+" WHERE id_level = '"+id_level+"' AND percentage= "+response_PERCENTAGE+"'", null);
 
-        if (cursor != null)
-            cursor.moveToFirst();
-
-        Response response = new Response(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), Double.parseDouble(cursor.getString(3)) , Integer.parseInt(cursor.getString(4)));
-        db.close();
+        if (cursor.moveToFirst()) {
+            do {
+                response = new Response(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), Double.parseDouble(cursor.getString(3)) , Integer.parseInt(cursor.getString(4)));
+            }
+            while (cursor.moveToNext());
+        }
         cursor.close();
+        db.close();
         return response;
     }
 
@@ -123,11 +126,27 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         db.close();
         return responses;
     }
-    public List<Response> getResponsesByLevel(int id_level) {
+    public List<Response> getResponses_textByLevel(int id_level) {
         List<Response> responses = new ArrayList<Response>();
 
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_RESPONSE+" WHERE id_level = '"+id_level+"'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_RESPONSE+" WHERE id_level = '"+id_level+"' AND type='0'", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                responses.add(new Response(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), Double.parseDouble(cursor.getString(3)) , Integer.parseInt(cursor.getString(4))));
+            }
+            while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return responses;
+    }
+    public List<Response> getResponses_imageByLevel(int id_level) {
+        List<Response> responses = new ArrayList<Response>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_RESPONSE+" WHERE id_level = '"+id_level+"' AND type='1'", null);
 
         if (cursor.moveToFirst()) {
             do {
