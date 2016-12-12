@@ -10,11 +10,11 @@ public class Question {
      Boolean done;
     double pourcentage;
 
-     ArrayList<Reponse> liste_reponses;
+     ArrayList<Response> liste_responses;
 
     public Question()
     {
-        this.liste_reponses = new ArrayList<Reponse>();
+        this.liste_responses = new ArrayList<Response>();
         this.done = false;
     }
 
@@ -26,12 +26,12 @@ public class Question {
         this.done = done;
     }
 
-    public ArrayList<Reponse> getListe_reponses() {
-        return liste_reponses;
+    public ArrayList<Response> getListe_responses() {
+        return liste_responses;
     }
 
-    public void setListe_reponses(ArrayList<Reponse> liste_reponses) {
-        this.liste_reponses = liste_reponses;
+    public void setListe_responses(ArrayList<Response> liste_responses) {
+        this.liste_responses = liste_responses;
     }
 
     public double getPourcentage() {
@@ -40,9 +40,9 @@ public class Question {
 
     public void updatePourcentage() {
         double s=0;
-        for (int i=0;i<liste_reponses.size();i++)
+        for (int i = 0; i< liste_responses.size(); i++)
         {
-            s+= liste_reponses.get(i).getPourcentage();
+            s+= liste_responses.get(i).getPourcentage();
         }
         this.pourcentage  = s;
     }

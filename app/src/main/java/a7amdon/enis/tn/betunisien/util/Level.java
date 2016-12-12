@@ -6,7 +6,7 @@ import a7amdon.enis.tn.betunisien.HomeActivity;
 /**
  * Created by 7amdon on 13/10/2016.
  */
-public class Niveau {
+public class Level {
     //Attributs
     private int valeur;
     private QuestionTexte questionTexte;
@@ -14,7 +14,7 @@ public class Niveau {
     private int image;
     private HomeActivity.StatusLevel status;
 
-    public Niveau(int valeur, QuestionTexte questionTexte, QuestionImage questionImage, HomeActivity.StatusLevel status, int image) {
+    public Level(int valeur, QuestionTexte questionTexte, QuestionImage questionImage, HomeActivity.StatusLevel status, int image) {
         this.valeur = valeur;
         this.questionTexte = questionTexte;
         this.questionImage = questionImage;

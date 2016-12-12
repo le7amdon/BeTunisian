@@ -3,7 +3,7 @@ package a7amdon.enis.tn.betunisien.util;
 /**
  * Created by 7amdon on 13/10/2016.
  */
-public class Reponse {
+public class Response {
 
         private String texte;
         private double pourcentage;
@@ -11,12 +11,12 @@ public class Reponse {
         private int type; // 0 = text ; 1=image
         private int id;
 
-    public Reponse(String texte, double pourcentage) {
+    public Response(String texte, double pourcentage) {
         this.texte = texte;
         this.pourcentage = pourcentage;
     }
 
-    public Reponse(int id, int type,String texte, double pourcentage, int id_level) {
+    public Response(int id, int type, String texte, double pourcentage, int id_level) {
         this.texte = texte;
         this.pourcentage = pourcentage;
         this.id_level = id_level;

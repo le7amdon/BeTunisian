@@ -10,12 +10,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.ContactsContract;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import a7amdon.enis.tn.betunisien.util.Reponse;
+import a7amdon.enis.tn.betunisien.util.Response;
 
 public class DatabaseHandler extends SQLiteOpenHelper{
 
@@ -46,21 +45,21 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    public void addReponse(Reponse reponse) {
+    public void addReponse(Response response) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
 
-        values.put(Response_TYPE, reponse.getType());
-        values.put(Response_TEXT, reponse.getTexte());
-        values.put(Response_PERCENTAGE, reponse.getPourcentage());
-        values.put(Response_ID_LEVEL, reponse.getId_level());
+        values.put(Response_TYPE, response.getType());
+        values.put(Response_TEXT, response.getTexte());
+        values.put(Response_PERCENTAGE, response.getPourcentage());
+        values.put(Response_ID_LEVEL, response.getId_level());
 
         db.insert(TABLE_RESPONSE, null, values);
         db.close();
     }
 
-    public Reponse getTextResponse(int id_level) {
+    public Response getTextResponse(int id_level) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_RESPONSE, new String[] { Response_ID, Response_TYPE, Response_TEXT, Response_PERCENTAGE, Response_ID_LEVEL }, Response_ID_LEVEL + "=?", new String[] { String.valueOf(id_level) }, null, null, null, null );
@@ -68,15 +67,15 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         if (cursor != null)
             cursor.moveToFirst();
 
-        Reponse reponse = new Reponse(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), Double.parseDouble(cursor.getString(3)) , Integer.parseInt(cursor.getString(4)));
+        Response response = new Response(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), Double.parseDouble(cursor.getString(3)) , Integer.parseInt(cursor.getString(4)));
         db.close();
         cursor.close();
-        return reponse;
+        return response;
     }
 
-    public void deleteContact(Reponse reponse) {
+    public void deleteContact(Response response) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_RESPONSE, Response_ID + "=?", new String[] { String.valueOf(reponse.getId()) });
+        db.delete(TABLE_RESPONSE, Response_ID + "=?", new String[] { String.valueOf(response.getId()) });
         db.close();
     }
 
@@ -108,20 +107,20 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     }
     */
 
-    public List<Reponse> getAllResponses() {
-        List<Reponse> reponses = new ArrayList<Reponse>();
+    public List<Response> getAllResponses() {
+        List<Response> responses = new ArrayList<Response>();
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_RESPONSE, null);
 
         if (cursor.moveToFirst()) {
             do {
-                reponses.add(new Reponse(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), Double.parseDouble(cursor.getString(3)) , Integer.parseInt(cursor.getString(4))));
+                responses.add(new Response(Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), cursor.getString(2), Double.parseDouble(cursor.getString(3)) , Integer.parseInt(cursor.getString(4))));
             }
             while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
-        return reponses;
+        return responses;
     }
 }

@@ -1,6 +1,5 @@
 package a7amdon.enis.tn.betunisien;
 
-import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.support.design.widget.AppBarLayout;
@@ -14,8 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -23,13 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
-import a7amdon.enis.tn.betunisien.util.Niveau;
-import a7amdon.enis.tn.betunisien.util.Reponse;
+import a7amdon.enis.tn.betunisien.util.Level;
 
 public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView=null;
-    private NiveauxAdapter adapter=null;
-    private List<Niveau> niveauxList=null;
+    private LevelAdapter adapter=null;
+    private List<Level> niveauxList=null;
     public enum  StatusLevel {blocked,zero,one,two};
     DatabaseHandler dbHandler;
 
@@ -46,7 +42,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyle_view_levels);
 
         niveauxList = new ArrayList<>();
-        adapter = new NiveauxAdapter(this, niveauxList);
+        adapter = new LevelAdapter(this, niveauxList);
 
         //RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getApplicationContext());
@@ -117,49 +113,49 @@ public class HomeActivity extends AppCompatActivity {
                 R.drawable.n14,
                 R.drawable.n15};
 
-        Niveau n = new Niveau(1,null,null,StatusLevel.blocked,all_level_numbers[0]);
+        Level n = new Level(1,null,null,StatusLevel.blocked,all_level_numbers[0]);
         niveauxList.add(n);
 
-        n = new Niveau(2,null,null,StatusLevel.blocked,all_level_numbers[1]);
+        n = new Level(2,null,null,StatusLevel.blocked,all_level_numbers[1]);
         niveauxList.add(n);
 
-        n = new Niveau(3,null,null,StatusLevel.two,all_level_numbers[2]);
+        n = new Level(3,null,null,StatusLevel.two,all_level_numbers[2]);
         niveauxList.add(n);
 
-        n = new Niveau(4,null,null,StatusLevel.zero,all_level_numbers[3]);
+        n = new Level(4,null,null,StatusLevel.zero,all_level_numbers[3]);
         niveauxList.add(n);
 
-        n = new Niveau(5,null,null,StatusLevel.one,all_level_numbers[4]);
+        n = new Level(5,null,null,StatusLevel.one,all_level_numbers[4]);
         niveauxList.add(n);
 
-        n = new Niveau(6,null,null,StatusLevel.two,all_level_numbers[5]);
+        n = new Level(6,null,null,StatusLevel.two,all_level_numbers[5]);
         niveauxList.add(n);
 
-        n = new Niveau(7,null,null,StatusLevel.blocked,all_level_numbers[6]);
+        n = new Level(7,null,null,StatusLevel.blocked,all_level_numbers[6]);
         niveauxList.add(n);
 
-        n = new Niveau(8,null,null,StatusLevel.blocked,all_level_numbers[7]);
+        n = new Level(8,null,null,StatusLevel.blocked,all_level_numbers[7]);
         niveauxList.add(n);
 
-        n = new Niveau(9,null,null,StatusLevel.blocked,all_level_numbers[8]);
+        n = new Level(9,null,null,StatusLevel.blocked,all_level_numbers[8]);
         niveauxList.add(n);
 
-        n = new Niveau(10,null,null,StatusLevel.blocked,all_level_numbers[9]);
+        n = new Level(10,null,null,StatusLevel.blocked,all_level_numbers[9]);
         niveauxList.add(n);
 
-        n = new Niveau(11,null,null,StatusLevel.blocked,all_level_numbers[10]);
+        n = new Level(11,null,null,StatusLevel.blocked,all_level_numbers[10]);
         niveauxList.add(n);
 
-        n = new Niveau(12,null,null,StatusLevel.blocked,all_level_numbers[11]);
+        n = new Level(12,null,null,StatusLevel.blocked,all_level_numbers[11]);
         niveauxList.add(n);
 
-        n = new Niveau(13,null,null,StatusLevel.blocked,all_level_numbers[12]);
+        n = new Level(13,null,null,StatusLevel.blocked,all_level_numbers[12]);
         niveauxList.add(n);
 
-        n = new Niveau(14,null,null,StatusLevel.blocked,all_level_numbers[13]);
+        n = new Level(14,null,null,StatusLevel.blocked,all_level_numbers[13]);
         niveauxList.add(n);
 
-        n = new Niveau(15,null,null,StatusLevel.blocked,all_level_numbers[14]);
+        n = new Level(15,null,null,StatusLevel.blocked,all_level_numbers[14]);
         niveauxList.add(n);
 
 

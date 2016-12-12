@@ -17,7 +17,7 @@ import a7amdon.enis.tn.betunisien.animations.CircleDisplay;
  * Created by 7amdon on 20/10/2016.
  */
 
-public class NiveauxActivity extends AppCompatActivity implements View.OnClickListener{
+public class LevelActivity extends AppCompatActivity implements View.OnClickListener{
     public static final int DETAIL_REQUEST = 1;
     TextView textView_level_label_number=null;
     ImageButton btnImage_back=null;

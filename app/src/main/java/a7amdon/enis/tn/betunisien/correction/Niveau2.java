@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import a7amdon.enis.tn.betunisien.R;
 import a7amdon.enis.tn.betunisien.util.QuestionImage;
 import a7amdon.enis.tn.betunisien.util.QuestionTexte;
-import a7amdon.enis.tn.betunisien.util.Reponse;
+import a7amdon.enis.tn.betunisien.util.Response;
 
 /**
  * Created by 7amdon on 13/10/2016.
@@ -18,30 +18,30 @@ public class Niveau2 {
     public Niveau2()
     {
         questionTexte = new QuestionTexte("Etounsi fi restaurant chnowa yhabet ?");
-        ArrayList<Reponse> list_response = null;
+        ArrayList<Response> list_response = null;
         //les réponses de la question n°1
-        list_response.add(new Reponse("ma9loub",31));
-        list_response.add(new Reponse("kaskrout-thon",20));
-        list_response.add(new Reponse("kafteji",16));
-        list_response.add(new Reponse("s7an-tounsi",11));
-        list_response.add(new Reponse("lablebi",8));
-        list_response.add(new Reponse("pizza",7));
-        list_response.add(new Reponse("rbo3-djej",5));
-        list_response.add(new Reponse("libanais",2));
+        list_response.add(new Response("ma9loub",31));
+        list_response.add(new Response("kaskrout-thon",20));
+        list_response.add(new Response("kafteji",16));
+        list_response.add(new Response("s7an-tounsi",11));
+        list_response.add(new Response("lablebi",8));
+        list_response.add(new Response("pizza",7));
+        list_response.add(new Response("rbo3-djej",5));
+        list_response.add(new Response("libanais",2));
 
 
-        questionTexte.setListe_reponses(list_response);
+        questionTexte.setListe_responses(list_response);
 
         /*******image setting*******/
         questionImage = new QuestionImage(R.drawable.i2);
-        ArrayList<Reponse> list_response1 = null;
+        ArrayList<Response> list_response1 = null;
         //les réponses de la question n°1
-        list_response1.add(new Reponse("koura",40));
-        list_response1.add(new Reponse("gazon",23));
-        list_response1.add(new Reponse("takwir",16));
-        list_response1.add(new Reponse("toufoula",12));
-        list_response1.add(new Reponse("passion",9));
+        list_response1.add(new Response("koura",40));
+        list_response1.add(new Response("gazon",23));
+        list_response1.add(new Response("takwir",16));
+        list_response1.add(new Response("toufoula",12));
+        list_response1.add(new Response("passion",9));
 
-        questionImage.setListe_reponses(list_response1);
+        questionImage.setListe_responses(list_response1);
     }
 }

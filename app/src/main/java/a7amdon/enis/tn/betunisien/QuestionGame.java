@@ -19,13 +19,17 @@ import android.widget.ViewSwitcher;
 import a7amdon.enis.tn.betunisien.animations.CircleDisplay;
 import a7amdon.enis.tn.betunisien.animations.FlipAnimation;
 import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
-import a7amdon.enis.tn.betunisien.util.Reponse;
+import a7amdon.enis.tn.betunisien.game.LevelSelector;
+import a7amdon.enis.tn.betunisien.util.Response;
 
 public class QuestionGame extends AppCompatActivity  implements View.OnClickListener{
 
     RelativeLayout cellule_response_locked = null;
     RelativeLayout cellule_response_unlocked=null;
     RelativeLayout one_cellule_response = null;
+
+
+    TextView game_question_txt= null;
 
     ViewSwitcher vf=null;
     RelativeLayout request_panel = null;
@@ -79,12 +83,14 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         });
         Bundle bundle3 = getIntent().getExtras();
         final String lvl_nbr = bundle3.getString("level_selected");
+        game_question_txt = (TextView)findViewById(R.id.game_question_txt) ;
+        new LevelSelector().selectLevel(Integer.parseInt(lvl_nbr),game_question_txt);
 
         btnImage_back = (ImageButton) findViewById(R.id.btnImage_back);
         btnImage_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), NiveauxActivity.class);
+                Intent intent = new Intent(v.getContext(), LevelActivity.class);
                 intent.putExtra("level_selected", "" + lvl_nbr);
                 v.getContext().startActivity(intent);
             }
@@ -94,7 +100,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         btnImage_back_request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), NiveauxActivity.class);
+                Intent intent = new Intent(v.getContext(), LevelActivity.class);
                 intent.putExtra("level_selected", "" + lvl_nbr);
                 v.getContext().startActivity(intent);
             }
@@ -484,7 +490,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
 
         if (v==btn_question_response|| v==edittxt_question_response){
             if(!edittxt_question_response.getText().equals(null)){
-                dbHandler.addReponse(new Reponse(1,0,"33333",20,3));
+                dbHandler.addReponse(new Response(1,0,"33333",20,3));
                 Toast.makeText(getApplicationContext(),dbHandler.getAllResponses().get(p).getTexte(),Toast.LENGTH_SHORT).show();
             }
             p++;

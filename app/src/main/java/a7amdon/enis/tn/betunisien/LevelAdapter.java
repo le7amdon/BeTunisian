@@ -11,19 +11,19 @@ import android.widget.RatingBar;
 
 import java.util.List;
 
-import a7amdon.enis.tn.betunisien.util.Niveau;
+import a7amdon.enis.tn.betunisien.util.Level;
 
 /**
  * Created by 7amdon on 20/10/2016.
  */
 
-public class NiveauxAdapter extends RecyclerView.Adapter<NiveauxAdapter.MyViewHolder>{
+public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.MyViewHolder>{
     public static final int DETAIL_REQUEST = 1;
     private Context mContext;
-    private List<Niveau> NiveauxList;
+    private List<Level> NiveauxList;
 
 
-    public NiveauxAdapter(Context mContext, List<Niveau> NiveauxList) {
+    public LevelAdapter(Context mContext, List<Level> NiveauxList) {
         this.mContext = mContext;
         this.NiveauxList = NiveauxList;
     }
@@ -47,7 +47,7 @@ public class NiveauxAdapter extends RecyclerView.Adapter<NiveauxAdapter.MyViewHo
 // - get element from your dataset at this position
         // - replace the contents of the view with that element
 
-        Niveau niveau = NiveauxList.get(position);
+        Level niveau = NiveauxList.get(position);
         holder.level_number.setImageResource(niveau.getImage());
         holder.level_number.setTag(holder.level_number.getId(),niveau.getValeur());
         HomeActivity.StatusLevel status = niveau.getStatus();
@@ -100,7 +100,7 @@ public class NiveauxAdapter extends RecyclerView.Adapter<NiveauxAdapter.MyViewHo
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),NiveauxActivity.class);
+                    Intent intent = new Intent(v.getContext(),LevelActivity.class);
                     intent.putExtra("level_selected",""+level_number.getTag(level_number.getId()) );
                     v.getContext().startActivity(intent);
                     //mContext.startActivityForResult(intent,DETAIL_REQUEST);
