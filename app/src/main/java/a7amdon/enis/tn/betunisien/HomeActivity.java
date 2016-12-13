@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         prepareAlbums();
 
         try {
-            Glide.with(this).load(R.drawable.n2).into((ImageView) findViewById(R.id.backdrop_app));
+            Glide.with(this).load(R.drawable.memes).into((ImageView) findViewById(R.id.backdrop_app));
         } catch (Exception e) {
             e.printStackTrace();
         }

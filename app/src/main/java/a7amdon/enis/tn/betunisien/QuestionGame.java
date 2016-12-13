@@ -125,7 +125,8 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         progress.setUnit("");
         progress.setStepSize(0.5f);
         // cd.setCustomText(...); // sets a custom array of text
-        progress.showValue(33f, 100f, true);
+//        progress.showValue(33f, 100f, true);
+        updateCircleProgress();
         //startZoomInAnimation(progress );
 
 
@@ -135,7 +136,7 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         }
         List<Response> responses = dbHandler.getResponses_textByLevel(id_level);
         for (int p=0;p<responses.size();p++ ){
-            ShowResponse(responses.get(p));
+            initShowResponse(responses.get(p));
         }
 
 
@@ -146,6 +147,13 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in_animation);
         view.startAnimation(animation);
     }*/
+
+
+    public void updateCircleProgress(){
+        double percent =levelSelector.getPercentTextByLevel(id_level,dbHandler);
+        float f = Float.parseFloat(percent+"");
+        progress.showValue(f, 100f, true);
+    }
 
     public void onCardClick(View view)
     {
@@ -199,6 +207,63 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
     public void ShowResponse(Response response)
     {
         if (!response.getTurned()) {
+            dbHandler.addReponse(response);
+            updateCircleProgress();
+            View root = null;
+            View locked = null;
+            View unlocked = null;
+            double pourcentage = response.getPourcentage();
+            if (pourcentage == 31) {
+                root = (View) findViewById(R.id.one_cellule_response31);
+                locked = (View) findViewById(R.id.cellule_response_locked31);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked31);
+            }
+            if (pourcentage == 2) {
+                root = (View) findViewById(R.id.one_cellule_response2);
+                locked = (View) findViewById(R.id.cellule_response_locked2);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked2);
+            }
+            if (pourcentage == 5) {
+                root = (View) findViewById(R.id.one_cellule_response5);
+                locked = (View) findViewById(R.id.cellule_response_locked5);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked5);
+            }
+            if (pourcentage == 7) {
+                root = (View) findViewById(R.id.one_cellule_response7);
+                locked = (View) findViewById(R.id.cellule_response_locked7);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked7);
+            }
+            if (pourcentage == 8) {
+                root = (View) findViewById(R.id.one_cellule_response8);
+                locked = (View) findViewById(R.id.cellule_response_locked8);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked8);
+            }
+            if (pourcentage == 11) {
+                root = (View) findViewById(R.id.one_cellule_response11);
+                locked = (View) findViewById(R.id.cellule_response_locked11);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked11);
+            }
+            if (pourcentage == 16) {
+                root = (View) findViewById(R.id.one_cellule_response16);
+                locked = (View) findViewById(R.id.cellule_response_locked16);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked16);
+            }
+            if (pourcentage == 20) {
+                root = (View) findViewById(R.id.one_cellule_response20);
+                locked = (View) findViewById(R.id.cellule_response_locked20);
+                unlocked = (View) findViewById(R.id.cellule_response_unlocked20);
+            }
+
+            flipCard(root, locked, unlocked);
+            response.setTurned(true);
+
+        }
+    }
+
+    public void initShowResponse(Response response)
+    {
+        if (!response.getTurned()) {
+
             View root = null;
             View locked = null;
             View unlocked = null;
@@ -579,136 +644,12 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
             if (response!=null)
             {
                 bravo(response);
-                dbHandler.addReponse(response);
+
                 //Toast.makeText(getApplicationContext(),dbHandler.getResponsesByLevelCount(id_level)+" !!!",Toast.LENGTH_SHORT).show();
             }
         }
 
     }
 
-/*
-    public void initializeResponsePanel(){
 
-        progress = (CircleDisplay) findViewById(R.id.percent2);
-        progress.setAnimDuration(3000);
-        //progress.setValueWidthPercent(55f);
-        progress.setTextSize(13f);
-        progress.setColor(Color.BLUE);
-        progress.setDrawText(true);
-        progress.setDrawInnerCircle(true);
-        progress.setFormatDigits(1);
-        progress.setTouchEnabled(false);
-        //progress.setSelectionListener(this);
-        progress.setUnit("");
-        progress.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress.showValue(2f, 100f, true);
-
-        progress = (CircleDisplay) findViewById(R.id.percent5);
-        progress.setAnimDuration(3000);
-        //progress.setValueWidthPercent(55f);
-        progress.setTextSize(13f);
-        progress.setColor(Color.BLUE);
-        progress.setDrawText(true);
-        progress.setDrawInnerCircle(true);
-        progress.setFormatDigits(1);
-        progress.setTouchEnabled(false);
-        //progress.setSelectionListener(this);
-        progress.setUnit("");
-        progress.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress.showValue(5f, 100f, true);
-
-        progress = (CircleDisplay) findViewById(R.id.percent7);
-        progress.setAnimDuration(3000);
-        //progress.setValueWidthPercent(55f);
-        progress.setTextSize(13f);
-        progress.setColor(Color.BLUE);
-        progress.setDrawText(true);
-        progress.setDrawInnerCircle(true);
-        progress.setFormatDigits(1);
-        progress.setTouchEnabled(false);
-        //progress.setSelectionListener(this);
-        progress.setUnit("");
-        progress.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress.showValue(7f, 100f, true);
-
-
-        progress = (CircleDisplay) findViewById(R.id.percent8);
-        progress.setAnimDuration(3000);
-        //progress.setValueWidthPercent(55f);
-        progress.setTextSize(13f);
-        progress.setColor(Color.BLUE);
-        progress.setDrawText(true);
-        progress.setDrawInnerCircle(true);
-        progress.setFormatDigits(1);
-        progress.setTouchEnabled(false);
-        //progress.setSelectionListener(this);
-        progress.setUnit("");
-        progress.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress.showValue(8f, 100f, true);
-
-        progress = (CircleDisplay) findViewById(R.id.percent11);
-        progress.setAnimDuration(3000);
-        //progress.setValueWidthPercent(55f);
-        progress.setTextSize(13f);
-        progress.setColor(Color.BLUE);
-        progress.setDrawText(true);
-        progress.setDrawInnerCircle(true);
-        progress.setFormatDigits(1);
-        progress.setTouchEnabled(false);
-        //progress.setSelectionListener(this);
-        progress.setUnit("");
-        progress.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress.showValue(11f, 100f, true);
-
-        progress = (CircleDisplay) findViewById(R.id.percent16);
-        progress.setAnimDuration(3000);
-        //progress.setValueWidthPercent(55f);
-        progress.setTextSize(13f);
-        progress.setColor(Color.BLUE);
-        progress.setDrawText(true);
-        progress.setDrawInnerCircle(true);
-        progress.setFormatDigits(1);
-        progress.setTouchEnabled(false);
-        //progress.setSelectionListener(this);
-        progress.setUnit("");
-        progress.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress.showValue(16f, 100f, true);
-
-        progress = (CircleDisplay) findViewById(R.id.percent20);
-        progress.setAnimDuration(3000);
-        //progress.setValueWidthPercent(55f);
-        progress.setTextSize(13f);
-        progress.setColor(Color.BLUE);
-        progress.setDrawText(true);
-        progress.setDrawInnerCircle(true);
-        progress.setFormatDigits(1);
-        progress.setTouchEnabled(false);
-        //progress.setSelectionListener(this);
-        progress.setUnit("");
-        progress.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress.showValue(20f, 100f, true);
-
-        progress = (CircleDisplay) findViewById(R.id.percent31);
-        progress.setAnimDuration(3000);
-        //progress.setValueWidthPercent(55f);
-        progress.setTextSize(13f);
-        progress.setColor(Color.BLUE);
-        progress.setDrawText(true);
-        progress.setDrawInnerCircle(true);
-        progress.setFormatDigits(1);
-        progress.setTouchEnabled(false);
-        //progress.setSelectionListener(this);
-        progress.setUnit("");
-        progress.setStepSize(0.5f);
-        // cd.setCustomText(...); // sets a custom array of text
-        progress.showValue(31f, 100f, true);
-        }
-*/
 }

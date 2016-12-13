@@ -1,7 +1,10 @@
 package a7amdon.enis.tn.betunisien.game;
 
+import android.provider.ContactsContract;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.List;
 
 import a7amdon.enis.tn.betunisien.R;
 import a7amdon.enis.tn.betunisien.correction.CorrectLevel;
@@ -20,6 +23,7 @@ import a7amdon.enis.tn.betunisien.correction.Level6;
 import a7amdon.enis.tn.betunisien.correction.Level7;
 import a7amdon.enis.tn.betunisien.correction.Level8;
 import a7amdon.enis.tn.betunisien.correction.Level9;
+import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
 import a7amdon.enis.tn.betunisien.util.Response;
 
 /**
@@ -176,5 +180,26 @@ public class LevelSelector {
             }
         }
         return  null;
+    }
+
+
+    public double getPercentTextByLevel(int id_level, DatabaseHandler db){
+        List<Response> responses = db.getResponses_textByLevel(id_level) ;
+        double percent =0;
+        for(int i=0;i<responses.size();i++){
+            percent += responses.get(i).getPourcentage();
+        }
+        return percent;
+    }
+    public double getPercentImageByLevel(int id_level, DatabaseHandler db){
+        List<Response> responses = db.getResponses_imageByLevel(id_level) ;
+        double percent =0;
+        for(int i=0;i<responses.size();i++){
+            percent += responses.get(i).getPourcentage();
+        }
+        return percent;
+    }
+    public double getPercentByLevel(int id_level, DatabaseHandler db){
+        return getPercentTextByLevel(id_level,db) + getPercentImageByLevel(id_level,db);
     }
 }
