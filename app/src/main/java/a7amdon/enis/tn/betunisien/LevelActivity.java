@@ -67,6 +67,14 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
         //imgView_level_question_progress = (ImageView)findViewById(R.id.level_question_progress);
         //imgView_level_image_progress = (ImageView)findViewById(R.id.level_image_progress);
         imgView_level_image_src = (ImageView)findViewById(R.id.level_image_src);
+        imgView_level_image_src.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),ImageGame.class);
+                intent.putExtra("level_selected",str );
+                v.getContext().startActivity(intent);
+            }
+        });
 
 
         //récpération du numero du niveau
@@ -208,6 +216,6 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    
+
 
 }

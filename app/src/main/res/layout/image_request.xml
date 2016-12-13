@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/request_panel_image"
+    android:layout_gravity="center"
+    android:background="@color/colorPrimaryDark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/toolbar_request_image"/>
+    <FrameLayout
+        android:id="@+id/spacing"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:clickable="false"
+        android:layout_centerInParent="true"></FrameLayout>
+    <ImageView
+        android:src="@drawable/i1"
+        android:id="@+id/game_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/cardview_light_background"
+        android:gravity="center"
+        />
+
+    <ImageButton android:id="@+id/btn_question_response"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_alignTop="@+id/edittxt_question_response"
+        android:layout_alignBottom="@+id/edittxt_question_response"
+        android:layout_alignRight="@+id/edittxt_question_response"
+        android:background="@android:drawable/ic_input_add"
+        android:onClick="answer"/>
+    <!--android:layout_alignTop="@+id/edittxt_question_response"
+    android:layout_alignBottom="@+id/edittxt_question_response"
+    android:layout_alignRight="@+id/edittxt_question_response" -->
+
+
+    <EditText
+        android:id="@+id/edittxt_question_response"
+        android:onClick="answer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:textColorHighlight="@color/hilights"
+        android:textColorHint="@color/hilights"
+        android:shadowColor="@color/hilights"
+        android:textColor="@color/cardview_light_background"
+        android:layout_below="@+id/spacing"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

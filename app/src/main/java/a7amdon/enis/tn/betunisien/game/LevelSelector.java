@@ -182,6 +182,14 @@ public class LevelSelector {
         return  null;
     }
 
+    public Response checkResponse_image(CorrectLevel correctLevel,String response){
+        for (int i=0;i<correctLevel.getQuestionImage().getListe_responses().size();i++){
+            if (correctLevel.getQuestionImage().getListe_responses().get(i).getTexte().equals(response)){
+                return correctLevel.getQuestionImage().getListe_responses().get(i);
+            }
+        }
+        return  null;
+    }
 
     public double getPercentTextByLevel(int id_level, DatabaseHandler db){
         List<Response> responses = db.getResponses_textByLevel(id_level) ;
