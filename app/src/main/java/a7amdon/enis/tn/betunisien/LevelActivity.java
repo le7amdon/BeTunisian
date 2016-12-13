@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import a7amdon.enis.tn.betunisien.animations.CircleDisplay;
+import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
+import a7amdon.enis.tn.betunisien.game.LevelSelector;
 
 /**
  * Created by 7amdon on 20/10/2016.
@@ -19,6 +21,7 @@ import a7amdon.enis.tn.betunisien.animations.CircleDisplay;
 
 public class LevelActivity extends AppCompatActivity implements View.OnClickListener{
     public static final int DETAIL_REQUEST = 1;
+    LevelSelector levelSelector;
     TextView textView_level_label_number=null;
     ImageButton btnImage_back=null;
     //ImageView imgView_level_question_progress=null;
@@ -29,6 +32,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
     TextView textView_level_question_text=null;
     CircleDisplay cicrcleDisplay_level_question_progress=null;
     CircleDisplay cicrcleDisplay_level_image_progress=null;
+    DatabaseHandler databaseHandler;
 
     int lvlNB = 0;
 
@@ -44,8 +48,11 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
             }
         });
 
+        databaseHandler = new DatabaseHandler(getApplicationContext());
+        levelSelector = new LevelSelector();
         Bundle bundle = getIntent().getExtras();
         final String str = bundle.getString("level_selected");
+        lvlNB = Integer.parseInt(str);
 
         textView_level_label_number = (TextView)findViewById(R.id.level_label_number);
         textView_level_question_text = (TextView)findViewById(R.id.level_question_text);
@@ -77,7 +84,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
         cicrcleDisplay_level_question_progress.setUnit("");
         cicrcleDisplay_level_question_progress.setStepSize(0.5f);
         // cd.setCustomText(...); // sets a custom array of text
-        cicrcleDisplay_level_question_progress.showValue(75f, 100f, true);
+        //cicrcleDisplay_level_question_progress.showValue(75f, 100f, true);
         /*end setting */
 
         /*setting CircleDisplay of percentage for image*/
@@ -94,12 +101,12 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
         cicrcleDisplay_level_image_progress.setUnit("");
         cicrcleDisplay_level_image_progress.setStepSize(0.5f);
         // cd.setCustomText(...); // sets a custom array of text
-        cicrcleDisplay_level_image_progress.showValue(31f, 100f, true);
+        //cicrcleDisplay_level_image_progress.showValue(31f, 100f, true);
         /*end setting */
 
-
+        updateCircleProgress();
         textView_level_label_number.setText(str);
-        lvlNB = Integer.parseInt(str);
+
 
         switch (lvlNB){
             case 1 :
@@ -182,6 +189,15 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    public void updateCircleProgress(){
+        double percent =levelSelector.getPercentTextByLevel(lvlNB,databaseHandler);
+        float f = Float.parseFloat(percent+"");
+        cicrcleDisplay_level_question_progress.showValue(f, 100f, true);
+         percent =levelSelector.getPercentImageByLevel(lvlNB,databaseHandler);
+         f = Float.parseFloat(percent+"");
+        cicrcleDisplay_level_image_progress.showValue(f, 100f, true);
+    }
+
     @Override
     public void onClick(View v) {
         if (v == cicrcleDisplay_level_question_progress || v == textView_level_question_text)
@@ -191,4 +207,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
             v.getContext().startActivity(intent);
         }
     }
+
+    
+
 }

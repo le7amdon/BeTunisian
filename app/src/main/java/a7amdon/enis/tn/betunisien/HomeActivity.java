@@ -163,6 +163,8 @@ public class HomeActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
+
+
     /**
      * RecyclerView item decoration - give equal margin around grid item
      */
