@@ -35,11 +35,11 @@ public class Level2 extends CorrectLevel{
         /*******image setting*******/
         questionImage = new QuestionImage(R.drawable.i2);
         ArrayList<Response> list_response1 =new ArrayList<Response>(5);
-        list_response1.add(new Response("koura",40,2));
-        list_response1.add(new Response("gazon",23,2));
-        list_response1.add(new Response("takwir",16,2));
-        list_response1.add(new Response("toufoula",12,2));
-        list_response1.add(new Response("passion",9,2));
+        list_response1.add(new Response(1,"koura",40,2));
+        list_response1.add(new Response(1,"gazon",23,2));
+        list_response1.add(new Response(1,"takwir",16,2));
+        list_response1.add(new Response(1,"toufoula",12,2));
+        list_response1.add(new Response(1,"passion",9,2));
 
         questionImage.setListe_responses(list_response1);
     }

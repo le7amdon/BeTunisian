@@ -642,8 +642,8 @@ public class QuestionGame extends AppCompatActivity  implements View.OnClickList
             //dbHandler.addReponse(new Response(1,0,edittxt_question_response.getText().toString(),20,3));
             Response response = levelSelector.checkResponse_text(correctLevel,edittxt_question_response.getText().toString());
             if (response!=null)
-            {
-                bravo(response);
+            {bravo
+                (response);
 
                 //Toast.makeText(getApplicationContext(),dbHandler.getResponsesByLevelCount(id_level)+" !!!",Toast.LENGTH_SHORT).show();
             }

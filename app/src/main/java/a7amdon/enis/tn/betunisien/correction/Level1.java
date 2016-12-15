@@ -18,7 +18,6 @@ public class Level1 extends CorrectLevel{
     {
         questionTexte = new QuestionTexte("Chniya awel 7aja ya3malha etounsi doub ma y9oum menoum ?");
         ArrayList<Response> list_response = new ArrayList<Response>(8);
-        //les réponses de la question n°1
         list_response.add(new Response("ya8sel-wejhou",31,1)); //0
         list_response.add(new Response("ydawech",20,1));       //1
         list_response.add(new Response("yekel",16,1));         //2
@@ -34,11 +33,11 @@ public class Level1 extends CorrectLevel{
         questionImage = new QuestionImage(R.drawable.i1);
         ArrayList<Response> list_response1 =new ArrayList<Response>(5);
         //les réponses de la question n°1
-        list_response1.add(new Response("medecine",40,1));
-        list_response1.add(new Response("9alb",23,1));
-        list_response1.add(new Response("a7mer",16,1));
-        list_response1.add(new Response("stylo",12,1));
-        list_response1.add(new Response("signal",9,1));
+        list_response1.add(new Response(1,"medecine",40,1));  //0
+        list_response1.add(new Response(1,"9alb",23,1));      //1
+        list_response1.add(new Response(1,"a7mer",16,1));     //2
+        list_response1.add(new Response(1,"stylo",12,1));     //3
+        list_response1.add(new Response(1,"signal",9,1));     //4
 
         questionImage.setListe_responses(list_response1);
     }

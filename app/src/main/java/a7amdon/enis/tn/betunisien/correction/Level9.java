@@ -35,11 +35,11 @@ public class Level9 extends CorrectLevel{
         questionImage = new QuestionImage(R.drawable.i9);
         ArrayList<Response> list_response1 = new ArrayList<Response>(5);
         //les réponses de la question n°1
-        list_response1.add(new Response("korsi",40,9));
-        list_response1.add(new Response("A",23,9));
-        list_response1.add(new Response("tour-eiffel",16,9));
-        list_response1.add(new Response("lou7",12,9));
-        list_response1.add(new Response("bit",9,9));
+        list_response1.add(new Response(1,"korsi",40,9));
+        list_response1.add(new Response(1,"A",23,9));
+        list_response1.add(new Response(1,"tour-eiffel",16,9));
+        list_response1.add(new Response(1,"lou7",12,9));
+        list_response1.add(new Response(1,"bit",9,9));
 
         questionImage.setListe_responses(list_response1);
     }

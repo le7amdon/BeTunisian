@@ -34,11 +34,11 @@ public class Level10 extends CorrectLevel{
         questionImage = new QuestionImage(R.drawable.i10);
         ArrayList<Response> list_response1 =new ArrayList<Response>(5);
         //les réponses de la question n°1
-        list_response1.add(new Response("wejh",40,10));
-        list_response1.add(new Response("ma3loumet",23,10));
-        list_response1.add(new Response("mo5",16,10));
-        list_response1.add(new Response("surmenage",12,10));
-        list_response1.add(new Response("numerique",9,10));
+        list_response1.add(new Response(1,"wejh",40,10));
+        list_response1.add(new Response(1,"ma3loumet",23,10));
+        list_response1.add(new Response(1,"mo5",16,10));
+        list_response1.add(new Response(1,"surmenage",12,10));
+        list_response1.add(new Response(1,"numerique",9,10));
 
         questionImage.setListe_responses(list_response1);
     }

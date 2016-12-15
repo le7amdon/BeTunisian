@@ -25,23 +25,23 @@
         android:gravity="center"
         />
 
-    <ImageButton android:id="@+id/btn_question_response"
+    <ImageButton android:id="@+id/btn_image_response"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_alignTop="@+id/edittxt_question_response"
-        android:layout_alignBottom="@+id/edittxt_question_response"
-        android:layout_alignRight="@+id/edittxt_question_response"
+        android:layout_alignTop="@+id/edittxt_image_response"
+        android:layout_alignBottom="@+id/edittxt_image_response"
+        android:layout_alignRight="@+id/edittxt_image_response"
         android:background="@android:drawable/ic_input_add"
-        android:onClick="answer"/>
+        android:onClick="answer1"/>
     <!--android:layout_alignTop="@+id/edittxt_question_response"
     android:layout_alignBottom="@+id/edittxt_question_response"
     android:layout_alignRight="@+id/edittxt_question_response" -->
 
 
     <EditText
-        android:id="@+id/edittxt_question_response"
-        android:onClick="answer"
+        android:id="@+id/edittxt_image_response"
+        android:onClick="answer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"

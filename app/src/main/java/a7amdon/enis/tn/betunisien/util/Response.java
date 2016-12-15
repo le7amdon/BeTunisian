@@ -25,6 +25,13 @@ public class Response {
         this.type = type;
         this.id = id;
     }
+    public Response(int type, String texte, double pourcentage, int id_level) {
+        this.texte = texte;
+        this.pourcentage = pourcentage;
+        this.id_level = id_level;
+        this.type = type;
+
+    }
 
     public String getTexte() {
         return texte;
