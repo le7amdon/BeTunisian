@@ -11,6 +11,7 @@ import android.widget.RatingBar;
 
 import java.util.List;
 
+import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
 import a7amdon.enis.tn.betunisien.util.Level;
 
 /**
@@ -21,9 +22,12 @@ public class LevelAdapter extends RecyclerView.Adapter<LevelAdapter.MyViewHolder
     public static final int DETAIL_REQUEST = 1;
     private Context mContext;
     private List<Level> NiveauxList;
+    DatabaseHandler databaseHandler;
 
 
-    public LevelAdapter(Context mContext, List<Level> NiveauxList) {
+
+    public LevelAdapter(Context mContext, List<Level> NiveauxList,DatabaseHandler databaseHandler) {
+        this.databaseHandler = databaseHandler;
         this.mContext = mContext;
         this.NiveauxList = NiveauxList;
     }

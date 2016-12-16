@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import a7amdon.enis.tn.betunisien.db.DatabaseHandler;
+import a7amdon.enis.tn.betunisien.game.LevelSelector;
 import a7amdon.enis.tn.betunisien.util.Level;
 
 public class HomeActivity extends AppCompatActivity {
@@ -28,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     private List<Level> niveauxList=null;
     public enum  StatusLevel {blocked,zero,one,two};
     DatabaseHandler dbHandler;
+    LevelSelector levelSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,14 +37,16 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_app);
 
+        dbHandler = new DatabaseHandler(getApplicationContext());
         setSupportActionBar(toolbar);
 
         initCollapsingToolbar();
+        levelSelector = new LevelSelector();
 
         recyclerView = (RecyclerView) findViewById(R.id.recyle_view_levels);
 
         niveauxList = new ArrayList<>();
-        adapter = new LevelAdapter(this, niveauxList);
+        adapter = new LevelAdapter(this, niveauxList,dbHandler);
 
         //RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getApplicationContext());
@@ -59,6 +63,9 @@ public class HomeActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+
+
 
     /**
      * Initializing collapsing toolbar
@@ -113,57 +120,65 @@ public class HomeActivity extends AppCompatActivity {
                 R.drawable.n14,
                 R.drawable.n15};
 
-        Level n = new Level(1,null,null,StatusLevel.blocked,all_level_numbers[0]);
+
+        Level n = new Level(1,null,null,getStatusLevel(1),all_level_numbers[0]);
         niveauxList.add(n);
 
-        n = new Level(2,null,null,StatusLevel.blocked,all_level_numbers[1]);
+
+
+        n = new Level(2,null,null,getStatusLevel(2),all_level_numbers[1]);
         niveauxList.add(n);
 
-        n = new Level(3,null,null,StatusLevel.two,all_level_numbers[2]);
+        n = new Level(3,null,null,getStatusLevel(3),all_level_numbers[2]);
         niveauxList.add(n);
 
-        n = new Level(4,null,null,StatusLevel.zero,all_level_numbers[3]);
+        n = new Level(4,null,null,getStatusLevel(4),all_level_numbers[3]);
         niveauxList.add(n);
 
-        n = new Level(5,null,null,StatusLevel.one,all_level_numbers[4]);
+        n = new Level(5,null,null,getStatusLevel(5),all_level_numbers[4]);
         niveauxList.add(n);
 
-        n = new Level(6,null,null,StatusLevel.two,all_level_numbers[5]);
+        n = new Level(6,null,null,getStatusLevel(6),all_level_numbers[5]);
         niveauxList.add(n);
 
-        n = new Level(7,null,null,StatusLevel.blocked,all_level_numbers[6]);
+        n = new Level(7,null,null,getStatusLevel(7),all_level_numbers[6]);
         niveauxList.add(n);
 
-        n = new Level(8,null,null,StatusLevel.blocked,all_level_numbers[7]);
+        n = new Level(8,null,null,getStatusLevel(8),all_level_numbers[7]);
         niveauxList.add(n);
 
-        n = new Level(9,null,null,StatusLevel.blocked,all_level_numbers[8]);
+        n = new Level(9,null,null,getStatusLevel(9),all_level_numbers[8]);
         niveauxList.add(n);
 
-        n = new Level(10,null,null,StatusLevel.blocked,all_level_numbers[9]);
+        n = new Level(10,null,null,getStatusLevel(10),all_level_numbers[9]);
         niveauxList.add(n);
 
-        n = new Level(11,null,null,StatusLevel.blocked,all_level_numbers[10]);
+        n = new Level(11,null,null,getStatusLevel(11),all_level_numbers[10]);
         niveauxList.add(n);
 
-        n = new Level(12,null,null,StatusLevel.blocked,all_level_numbers[11]);
+        n = new Level(12,null,null,getStatusLevel(12),all_level_numbers[11]);
         niveauxList.add(n);
 
-        n = new Level(13,null,null,StatusLevel.blocked,all_level_numbers[12]);
+        n = new Level(13,null,null,getStatusLevel(13),all_level_numbers[12]);
         niveauxList.add(n);
 
-        n = new Level(14,null,null,StatusLevel.blocked,all_level_numbers[13]);
+        n = new Level(14,null,null,getStatusLevel(14),all_level_numbers[13]);
         niveauxList.add(n);
 
-        n = new Level(15,null,null,StatusLevel.blocked,all_level_numbers[14]);
+        n = new Level(15,null,null,getStatusLevel(15),all_level_numbers[14]);
         niveauxList.add(n);
 
 
 
         adapter.notifyDataSetChanged();
     }
-
-
+ public StatusLevel getStatusLevel(int id_level) {
+     if ((levelSelector.getPercentTextByLevel(id_level,dbHandler)==100)&&(levelSelector.getPercentImageByLevel(id_level,dbHandler)==100))
+         return StatusLevel.two;
+     else if ((levelSelector.getPercentTextByLevel(id_level,dbHandler)!=100)&&(levelSelector.getPercentImageByLevel(id_level,dbHandler)!=100))
+         return StatusLevel.zero;
+     else return StatusLevel.one;
+ }
 
     /**
      * RecyclerView item decoration - give equal margin around grid item

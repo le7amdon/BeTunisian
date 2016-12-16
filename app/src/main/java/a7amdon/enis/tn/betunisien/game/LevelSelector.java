@@ -210,4 +210,6 @@ public class LevelSelector {
     public double getPercentByLevel(int id_level, DatabaseHandler db){
         return getPercentTextByLevel(id_level,db) + getPercentImageByLevel(id_level,db);
     }
+
+
 }

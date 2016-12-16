@@ -521,12 +521,12 @@ public class ImageGame extends AppCompatActivity  implements View.OnClickListene
 
             if (response!=null)
             {
-                Toast.makeText(getApplicationContext(),"type!!!!"+response.getType(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"type!!!!"+response.getType(),Toast.LENGTH_SHORT).show();
                 bravo(response);
 
                 //Toast.makeText(getApplicationContext(),dbHandler.getResponsesByLevelCount(id_level)+" !!!",Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText(getApplicationContext(),"mllll",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"mllll",Toast.LENGTH_SHORT).show();
             }
         }
 
