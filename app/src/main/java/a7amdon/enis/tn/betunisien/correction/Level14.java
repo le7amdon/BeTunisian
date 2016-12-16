@@ -17,7 +17,7 @@ public class Level14 extends CorrectLevel{
 
     public Level14()
     {
-        questionTexte = new QuestionTexte("Chniya awel 7aja ya3malha etounsi doub ma y9oum menoum ?");
+        questionTexte = new QuestionTexte("7aja nejmou nektbou biha ?");
         ArrayList<Response> list_response = new ArrayList<Response>(8);
         //les réponses de la question n°1
         list_response.add(new Response("stylo",31,14));

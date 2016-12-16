@@ -38,7 +38,7 @@ public class Level15 extends CorrectLevel{
         list_response1.add(new Response(1,"sonara",23,15));
         list_response1.add(new Response(1,"tfol",16,15));
         list_response1.add(new Response(1,"rajel",12,15));
-        list_response1.add(new Response(1,"b7ar",9,15));
+        list_response1.add(new Response("b7ar",9,15));
 
         questionImage.setListe_responses(list_response1);
     }
