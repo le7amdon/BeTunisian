@@ -291,7 +291,6 @@ public class ImageGame extends AppCompatActivity  implements View.OnClickListene
         }
     }
     public  void bravo(Response response){
-        Toast.makeText(getApplicationContext(),"bravo--prct!!!!"+response.getPourcentage(),Toast.LENGTH_SHORT).show();
         ShowResponse(response);
         Toast.makeText(getApplicationContext(),"Bravo !",Toast.LENGTH_SHORT).show();
 
